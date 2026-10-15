@@ -1,0 +1,328 @@
+/* =============================================================
+   VISIT JORDAN — OUR CULTURE & TRADITIONS
+   Shared navigation/footer: ../../../landingPage.css
+   Culture images: ../aboutImage/cultureImage/
+   ============================================================= */
+
+:root {
+    --cultureRed: #CE1126;
+    --cultureRedDeep: #A50E1E;
+    --cultureInk: #1D1B1A;
+    --cultureMuted: #66625E;
+    --cultureCream: #F7F3ED;
+    --cultureSand: #E9DFD2;
+    --cultureGold: #C4A67A;
+    --cultureWhite: #FFFFFF;
+}
+
+/* Keep the navbar consistent with the other About pages. */
+.siteHeader { position: absolute; top: 0; left: 0; width: 100%; z-index: 200; }
+.mainNavbar { position: relative; z-index: 201; }
+.navLinks { gap: clamp(16px, 2vw, 34px); }
+.navPending { display: block; padding: 10px 0; color: #FFFFFF; font-size: 13px; font-weight: 600; white-space: nowrap; cursor: default; }
+.aboutMegaPhoto { min-height: 215px; background-position: center; background-size: cover; background-repeat: no-repeat; }
+#aboutMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/royal.png'); }
+#planMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/petra.png'); }
+#thingsMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/bole.png'); }
+.siteHeader:has(.aboutDetails[open]) .navPending { color: #171717; }
+.navLinks .aboutMegaLinks a[aria-current="page"] { color: var(--cultureRed); }
+.travelInfoPending { color: #A1A1A1; font-size: 15px; font-weight: 600; cursor: default; }
+
+@media (max-width: 1050px) {
+    .mainNavbar { display: flex; flex-wrap: wrap; justify-content: space-between; }
+    .navLinks { position: relative; inset: auto; display: flex; flex: 0 0 100%; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; max-height: none; padding: 0 0 4px; overflow: visible; background: transparent; box-shadow: none; }
+    .navLinks > li { width: auto; }
+    .navLinks .aboutDropdownBtn, .navLinks > li > a, .navPending { width: auto; padding: 10px 0; color: #FFFFFF; font-size: 13px; }
+    .siteHeader:has(.aboutDetails[open]) .navLinks .aboutDropdownBtn, .siteHeader:has(.aboutDetails[open]) .navLinks > li > a, .siteHeader:has(.aboutDetails[open]) .navPending { color: #171717; }
+    .menuToggleBtn { display: none; }
+    .aboutMegaMenu { position: absolute; top: 100%; left: 0; width: 100%; }
+}
+
+/* Shared culture page primitives */
+.culturePage {
+    overflow: clip;
+    background: var(--cultureWhite);
+    color: var(--cultureInk);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.culturePage *, .culturePage *::before, .culturePage *::after { box-sizing: border-box; }
+.culturePage a { text-decoration: none; }
+.culturePage [id] { scroll-margin-top: 95px; }
+.cultureContainer { width: min(1180px, 88%); margin-inline: auto; }
+.cultureEyebrow { display: block; color: var(--cultureRed); font-size: 11px; font-weight: 800; letter-spacing: .19em; line-height: 1.7; text-transform: uppercase; }
+.cultureEyebrowLight { color: #F6D6D4; }
+.cultureSection { padding-block: 110px; }
+.cultureSection h2, .cultureIntroduction h2, .cultureEtiquette h2, .cultureEnding h2 {
+    margin: 12px 0 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(42px, 4.5vw, 68px);
+    font-weight: 500;
+    letter-spacing: -.04em;
+    line-height: 1.13;
+}
+.cultureSection h2 em, .cultureIntroduction h2 em, .cultureEtiquette h2 em, .cultureEnding h2 em { color: var(--cultureRed); font-weight: 400; }
+.culturePhotoFill, .cultureFeatureImage { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.cultureImageShade { position: absolute; inset: 0; background: linear-gradient(180deg,rgba(12,9,8,0) 20%,rgba(12,9,8,.82) 100%); pointer-events: none; }
+.cultureSectionHeader { display: flex; align-items: end; justify-content: space-between; gap: 50px; margin-bottom: 46px; }
+.cultureSectionHeader > div { flex: 0 1 700px; }
+.cultureSectionHeader > p { flex: 0 1 330px; margin: 0 0 6px; color: var(--cultureMuted); font-size: 15px; line-height: 1.9; }
+
+/* 00. Hero: atmospheric photography + editorial title */
+.cultureHero { position: relative; isolation: isolate; min-height: min(850px, 92svh); min-height: clamp(670px, 93svh, 910px); display: flex; align-items: center; overflow: hidden; background: #241F1C; color: #fff; }
+.cultureHeroImage { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+.cultureHeroOverlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(12,11,11,.88) 0%, rgba(12,11,11,.68) 48%, rgba(12,11,11,.24) 100%), linear-gradient(0deg, rgba(12,11,11,.52), transparent 35%); }
+.cultureHeroInner { position: relative; z-index: 1; padding-block: 200px 140px; }
+.cultureLine { display: inline-block; width: 31px; height: 1px; margin-right: 8px; vertical-align: middle; background: var(--cultureGold); }
+.cultureHero h1 { max-width: 880px; margin: 23px 0 29px; color: #fff; font-family: Georgia,'Times New Roman',serif; font-size: clamp(57px, 6.9vw, 108px); font-weight: 500; letter-spacing: -.055em; line-height: 1.055; }
+.cultureHero h1 em { color: #FFD1C7; font-weight: 400; }
+.cultureHeroInner > p { max-width: 610px; margin: 0; color: #F4EDE8; font-size: clamp(16px,1.45vw,20px); line-height: 1.82; }
+.cultureHeroLink { display: inline-flex; align-items: center; justify-content: center; gap: 42px; margin-top: 36px; padding: 18px 25px; border: 1px solid var(--cultureRed); border-radius: 3px; background: var(--cultureRed); color: #fff; font-size: 13px; font-weight: 800; letter-spacing: .025em; transition: background .2s, transform .2s; }
+.cultureHeroLink:hover { background: var(--cultureRedDeep); transform: translateY(-3px); }
+.cultureHeroLink span { font-size: 18px; }
+.cultureHeroBottom { position: absolute; right: 6%; bottom: 26px; left: 6%; display: flex; justify-content: space-between; gap: 24px; color: #EEE5DE; font-size: 10px; font-weight: 700; letter-spacing: .23em; }
+.cultureHeroBottom b { margin-left: 10px; font-size: 20px; font-weight: 400; }
+
+.cultureBreadcrumb { display: flex; align-items: center; gap: 14px; padding-block: 27px; color: #918A82; font-size: 12px; }
+.cultureBreadcrumb a { color: var(--cultureRed); }
+.cultureBreadcrumb strong { color: var(--cultureInk); font-weight: 700; }
+
+/* Intro and section menu */
+.cultureIntroduction { display: grid; grid-template-columns: 1fr .8fr; column-gap: 85px; row-gap: 60px; padding-block: 105px 98px; }
+.cultureIntroHeading h2 { max-width: 690px; }
+.cultureIntroBody { align-self: end; }
+.cultureIntroBody p { margin: 0 0 17px; color: var(--cultureMuted); font-size: 16px; line-height: 1.9; }
+.cultureCategoryIndex { grid-column: 1/-1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid #E4DDD4; border-left: 1px solid #E4DDD4; }
+.cultureCategoryIndex a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 76px; padding: 18px; border-right: 1px solid #E4DDD4; border-bottom: 1px solid #E4DDD4; color: #24211E; font-size: 13px; font-weight: 700; transition: color .2s, background .2s; }
+.cultureCategoryIndex a span { color: var(--cultureRed); font-size: 19px; }
+.cultureCategoryIndex a:hover { background: var(--cultureCream); color: var(--cultureRed); }
+
+/* 01. Faith */
+.cultureFaith { background: var(--cultureCream); }
+.cultureFaithGrid { display: grid; grid-template-columns: 1.13fr 1fr; grid-template-rows: repeat(2,310px); gap: 20px; }
+.cultureFeatureCard { position: relative; isolation: isolate; overflow: hidden; border-radius: 2px; background: #3A302A; }
+.cultureFeatureCardTall { grid-row: span 2; }
+.cultureFeatureCard:hover .cultureFeatureImage { transform: scale(1.055); }
+.cultureFeatureCaption { position: absolute; right: 31px; bottom: 28px; left: 31px; color: #fff; }
+.cultureFeatureCaption span { display: block; margin-bottom: 10px; color: #FFD6CA; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.cultureFeatureCaption h3 { margin: 0 0 8px; color: #fff; font-family: Georgia,serif; font-size: clamp(24px,2.5vw,36px); font-weight: 500; letter-spacing: -.02em; }
+.cultureFeatureCaption p { max-width: 480px; margin: 0; color: #F3F0EE; font-size: 13px; line-height: 1.75; }
+.cultureSectionNote { max-width: 860px; margin: 30px 0 0; padding-left: 19px; border-left: 3px solid var(--cultureRed); color: var(--cultureMuted); font-size: 14px; line-height: 1.9; }
+.cultureSectionNote strong { color: var(--cultureInk); }
+
+/* 02. Hospitality */
+.cultureHospitality { background: #211F1E; color: #fff; }
+.cultureHospitality h2 em { color: #E7BAA8; }
+.cultureHospitalityGrid { display: grid; grid-template-columns: 1fr 1.06fr; gap: clamp(40px,7vw,110px); align-items: center; }
+.cultureHospitalityCopy > p { max-width: 510px; margin: 25px 0 30px; color: #CFC8C2; font-size: 15px; line-height: 1.95; }
+.cultureCustom { display: flex; gap: 22px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.18); }
+.cultureCustomIndex { min-width: 24px; padding-top: 3px; color: #D6B39D; font-size: 12px; font-weight: 800; }
+.cultureCustom h3 { margin: 0 0 7px; color: #fff; font-family: Georgia,serif; font-size: 23px; font-weight: 500; }
+.cultureCustom p { margin: 0; color: #CFC8C2; font-size: 13px; line-height: 1.85; }
+.cultureHospitalityPhotos { position: relative; min-height: 695px; padding-bottom: 45px; }
+.cultureHospitalityMain { position: absolute; inset: 0 15% 95px 0; overflow: hidden; background: #534435; }
+.cultureHospitalityInset { position: absolute; right: 0; bottom: 30px; width: 57%; height: 52%; overflow: hidden; border: 10px solid #211F1E; background: #6C5646; box-sizing: content-box; }
+.cultureHospitalityMain:hover img, .cultureHospitalityInset:hover img { transform: scale(1.04); }
+.culturePhotoTag { position: absolute; bottom: 0; left: 0; color: #E2C6B3; font-size: 10px; letter-spacing: .14em; }
+
+/* 03. Weddings */
+.cultureWeddings { background: #fff; }
+.cultureWeddingLayout { display: grid; grid-template-columns: 1.17fr .83fr; gap: 20px; }
+.cultureWeddingPhoto { position: relative; min-height: 705px; overflow: hidden; background: #5C4844; }
+.cultureWeddingPhoto::after { position: absolute; inset: 0; content: ''; background: linear-gradient(0deg,rgba(0,0,0,.69),transparent 48%); }
+.cultureWeddingPhoto:hover img { transform: scale(1.04); }
+.cultureWeddingPhotoText { position: absolute; z-index: 1; right: 28px; bottom: 33px; left: 28px; }
+.cultureWeddingPhotoText span { color: #F3C7BB; font-size: 10px; font-weight: 800; letter-spacing: .2em; }
+.cultureWeddingPhotoText h3 { max-width: 500px; margin: 11px 0 0; color: #fff; font-family: Georgia,serif; font-size: clamp(34px,4vw,56px); font-weight: 500; letter-spacing: -.035em; }
+.cultureWeddingSteps { display: flex; flex-direction: column; background: var(--cultureCream); }
+.cultureWeddingSteps > article { padding: 25px 28px 17px; border-bottom: 1px solid #DED5C8; }
+.cultureWeddingSteps article > span { color: var(--cultureRed); font-size: 10px; font-weight: 800; letter-spacing: .15em; }
+.cultureWeddingSteps article h3 { margin: 9px 0 6px; font-family: Georgia,serif; font-size: 24px; font-weight: 500; }
+.cultureWeddingSteps article p { margin: 0; color: var(--cultureMuted); font-size: 13px; line-height: 1.75; }
+.cultureWeddingMini { flex: 1; min-height: 160px; overflow: hidden; }
+.cultureWeddingMini img { object-position: center 33%; }
+
+/* 04. Dress */
+.cultureClothing { background: #EEE8DE; }
+.cultureClothingGrid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(70px,8vw,135px); align-items: center; }
+.cultureClothingImages { position: relative; min-height: 705px; }
+.cultureClothingBig { position: absolute; inset: 0 18% 80px 0; overflow: hidden; background: #5B4E47; }
+.cultureClothingSmall { position: absolute; right: 0; bottom: 0; width: 52%; height: 55%; overflow: hidden; border: 9px solid #EEE8DE; background: #443B35; }
+.cultureVerticalCaption { position: absolute; top: 0; right: -25px; color: #78695B; font-size: 10px; font-weight: 800; letter-spacing: .18em; writing-mode: vertical-rl; }
+.cultureClothingBig:hover img, .cultureClothingSmall:hover img { transform: scale(1.04); }
+.cultureClothingCopy > p { margin: 23px 0 30px; color: #605A54; font-size: 15px; line-height: 1.92; }
+.cultureClothingDetail { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid #D4C9BB; }
+.cultureDetailIcon { color: var(--cultureRed); font-size: 25px; line-height: 1; }
+.cultureClothingDetail h3 { margin: 0 0 7px; font-family: Georgia,serif; font-size: 23px; font-weight: 500; }
+.cultureClothingDetail p { margin: 0; color: #665F58; font-size: 13px; line-height: 1.8; }
+
+/* 05. Folk music */
+.cultureMusic { background: #511F26; color: #fff; }
+.cultureMusic h2 em { color: #EEC5BB; }
+.cultureMusicTop { display: flex; justify-content: space-between; align-items: end; gap: 60px; margin-bottom: 43px; }
+.cultureMusicTop > p { flex: 0 1 340px; margin: 0 0 5px; color: #E0CFCC; font-size: 15px; line-height: 1.85; }
+.cultureMusicGrid { display: grid; grid-template-columns: 1fr 1fr .78fr; gap: 16px; }
+.cultureMusicVisual { position: relative; height: 475px; overflow: hidden; background: #433032; }
+.cultureMusicVisual::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg,transparent 55%,rgba(0,0,0,.56)); }
+.cultureMusicVisual:hover img { transform: scale(1.055); }
+.cultureMusicLabel { position: absolute; z-index: 1; right: 18px; bottom: 21px; left: 18px; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .13em; }
+.cultureMusicTypes { display: flex; flex-direction: column; justify-content: space-around; padding: 4px 15px 4px 23px; background: rgba(255,255,255,.075); }
+.cultureMusicTypes > div { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+.cultureMusicTypes > div:last-child { border-bottom: 0; }
+.cultureMusicTypes span { color: #FFBFC5; font-size: 11px; font-weight: 800; }
+.cultureMusicTypes h3 { margin: 8px 0; color: #fff; font-family: Georgia,serif; font-size: 23px; font-weight: 500; }
+.cultureMusicTypes p { margin: 0; color: #ECDADD; font-size: 12px; line-height: 1.72; }
+
+/* 06. Traditional craft gallery */
+.cultureCrafts { background: #fff; }
+.cultureCraftsGallery { display: grid; grid-template-columns: 1.12fr .88fr; grid-template-rows: repeat(2,280px); gap: 17px; }
+.cultureCraftItem { position: relative; overflow: hidden; background: #5B4B44; }
+.cultureCraftItemLarge { grid-row: span 2; }
+.cultureCraftItem::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg, transparent 22%, rgba(0,0,0,.85)); }
+.cultureCraftItem:hover img { transform: scale(1.05); }
+.cultureCraftItem > div { position: absolute; z-index: 1; right: 26px; bottom: 24px; left: 26px; color: #fff; }
+.cultureCraftItem span { font-size: 10px; font-weight: 800; letter-spacing: .16em; color: #FFC4BB; }
+.cultureCraftItem h3 { margin: 9px 0 7px; color: #fff; font-family: Georgia,serif; font-size: clamp(24px,2.7vw,35px); font-weight: 500; }
+.cultureCraftItem p { max-width: 425px; margin: 0; color: #F0E7E3; font-size: 13px; line-height: 1.7; }
+
+/* 07. National celebrations */
+.cultureNational { background: #211F1E; color: #fff; }
+.cultureNational h2 em { color: #ECC2AE; }
+.cultureNationalIntro { max-width: 820px; margin-bottom: 43px; }
+.cultureNationalIntro > p { max-width: 620px; margin: 22px 0 0; color: #D4CBC5; font-size: 16px; line-height: 1.88; }
+.cultureNationalGallery { display: grid; grid-template-columns: 1.45fr 1fr; gap: 17px; }
+.cultureNationalBig, .cultureNationalSmall { position: relative; height: 495px; overflow: hidden; background: #4A3734; }
+.cultureNationalBig::after, .cultureNationalSmall::after { position: absolute; inset: 0; content: ''; background: linear-gradient(180deg,transparent 40%,rgba(0,0,0,.72)); }
+.cultureNationalBig:hover img, .cultureNationalSmall:hover img { transform: scale(1.05); }
+.cultureNationalBig > div, .cultureNationalSmall > div { position: absolute; z-index: 1; bottom: 25px; left: 26px; right: 26px; }
+.cultureNationalBig span, .cultureNationalSmall span { color: #FFC5C5; font-size: 10px; font-weight: 800; letter-spacing: .19em; }
+.cultureNationalBig h3, .cultureNationalSmall h3 { margin: 8px 0 0; color: #fff; font-family: Georgia,serif; font-size: clamp(29px,3vw,40px); font-weight: 500; }
+.cultureNationalFoot { margin: 23px 0 0; color: #CFC8C2; font-size: 13px; line-height: 1.85; }
+
+/* 08. Dining */
+.cultureDining { background: var(--cultureCream); }
+.cultureDiningGrid { display: grid; grid-template-columns: 1fr 1.05fr; align-items: center; gap: clamp(50px,7vw,105px); }
+.cultureDiningCopy > p { max-width: 500px; margin: 23px 0 29px; color: var(--cultureMuted); font-size: 15px; line-height: 1.9; }
+.cultureDiningPoint { display: flex; gap: 18px; padding: 17px 0; border-top: 1px solid #DED6CB; }
+.cultureDiningPoint > span { color: var(--cultureRed); font-size: 11px; font-weight: 800; }
+.cultureDiningPoint h3 { margin: 0 0 6px; font-family: Georgia,serif; font-size: 23px; font-weight: 500; }
+.cultureDiningPoint p { margin: 0; color: var(--cultureMuted); font-size: 13px; line-height: 1.75; }
+.cultureOutlineLink { display: inline-flex; align-items: center; justify-content: space-between; gap: 35px; margin-top: 23px; padding: 15px 18px; border: 1px solid var(--cultureRed); color: var(--cultureRed); font-size: 13px; font-weight: 800; transition: background .2s, color .2s; }
+.cultureOutlineLink:hover { background: var(--cultureRed); color: #fff; }
+.cultureDiningPhoto { position: relative; height: 760px; overflow: hidden; background: #75604D; }
+.cultureDiningPhoto:hover img { transform: scale(1.05); }
+.cultureDiningPhotoLabel { position: absolute; right: 0; bottom: 0; left: 0; padding: 22px 20px; background: rgba(27,19,18,.82); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-align: center; }
+
+/* Useful etiquette for travellers */
+.cultureEtiquette { padding-block: 106px 112px; background: #fff; }
+.cultureEtiquetteHeading { max-width: 810px; margin-bottom: 45px; }
+.cultureEtiquetteGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; border-top: 1px solid #E5DED6; }
+.cultureEtiquetteGrid article { padding: 28px 28px 18px 0; }
+.cultureEtiquetteGrid article + article { padding-left: 28px; border-left: 1px solid #E5DED6; }
+.cultureEtiquetteGrid article > span { color: var(--cultureRed); font-size: 12px; font-weight: 800; }
+.cultureEtiquetteGrid h3 { margin: 14px 0 12px; font-family: Georgia,serif; font-size: 24px; font-weight: 500; }
+.cultureEtiquetteGrid p { margin: 0; color: var(--cultureMuted); font-size: 13px; line-height: 1.85; }
+
+/* Closing CTA */
+.cultureEnding { position: relative; isolation: isolate; display: flex; align-items: center; min-height: 520px; background: #2D2422; color: #fff; }
+.cultureEndingVisual, .cultureEndingShade { position: absolute; z-index: -1; inset: 0; }
+.cultureEndingShade { background: linear-gradient(90deg,rgba(17,13,14,.86),rgba(17,13,14,.4)); }
+.cultureEndingContent { padding-block: 100px; }
+.cultureEnding h2 { color: #fff; }
+.cultureEnding h2 em { color: #FFD0C5; }
+.cultureEndingContent p { max-width: 520px; margin: 20px 0 27px; color: #EDE2DC; font-size: 15px; line-height: 1.85; }
+.cultureEndingContent > a { display: inline-flex; align-items: center; gap: 35px; padding: 15px 20px; border: 1px solid #fff; color: #fff; font-size: 13px; font-weight: 800; transition: color .2s, background .2s; }
+.cultureEndingContent > a:hover { background: #fff; color: #211F1E; }
+
+/* Accessibility: visible focus treatment */
+.culturePage a:focus-visible { outline: 3px solid var(--cultureRed); outline-offset: 4px; }
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+@media (max-width: 1050px) {
+    .cultureIntroduction { column-gap: 55px; }
+    .cultureSection { padding-block: 88px; }
+    .cultureHospitalityGrid, .cultureClothingGrid, .cultureDiningGrid { gap: 45px; }
+    .cultureHospitalityPhotos { min-height: 610px; }
+    .cultureClothingImages { min-height: 600px; }
+    .cultureDiningPhoto { height: 665px; }
+    .cultureMusicGrid { grid-template-columns: 1fr 1fr; }
+    .cultureMusicTypes { grid-column: 1 / -1; flex-direction: row; gap: 26px; padding: 15px 24px; }
+    .cultureMusicTypes > div { flex: 1; border-bottom: 0; }
+}
+@media (max-width: 800px) {
+    .cultureContainer { width: 90%; }
+    .cultureHero { min-height: 740px; }
+    .cultureHeroInner { padding-block: 210px 140px; }
+    .cultureHero h1 { font-size: clamp(53px,8.8vw,78px); }
+    .cultureSectionHeader, .cultureMusicTop { display: block; }
+    .cultureSectionHeader > p, .cultureMusicTop > p { max-width: 610px; margin-top: 20px; }
+    .cultureIntroduction { grid-template-columns: 1fr; row-gap: 22px; padding-block: 78px; }
+    .cultureCategoryIndex { grid-column: auto; grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: 24px; }
+    .cultureHospitalityGrid, .cultureClothingGrid, .cultureDiningGrid { grid-template-columns: 1fr; }
+    .cultureHospitalityCopy, .cultureClothingCopy, .cultureDiningCopy { max-width: 680px; }
+    .cultureHospitalityPhotos { min-height: 640px; width: min(100%,690px); }
+    .cultureClothingImages { min-height: 670px; width: min(100%,690px); }
+    .cultureClothingCopy { grid-row: 1; }
+    .cultureWeddingLayout { grid-template-columns: 1fr; }
+    .cultureWeddingPhoto { min-height: 520px; }
+    .cultureWeddingSteps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .cultureWeddingSteps > article { padding: 20px; border-bottom: 0; border-right: 1px solid #DED5C8; }
+    .cultureWeddingMini { grid-column: 1/-1; height: 220px; }
+    .cultureDiningPhoto { height: 620px; }
+}
+@media (max-width: 650px) {
+    .navLogo { font-size: 18px; }
+    .navLinks { justify-content: flex-start; column-gap: 18px; }
+    .navLinks .aboutDropdownBtn, .navLinks > li > a, .navPending { font-size: 12px; }
+    .cultureHero { min-height: 730px; }
+    .cultureHeroImage { object-position: 63% center; }
+    .cultureHeroOverlay { background: linear-gradient(90deg,rgba(12,11,11,.87),rgba(12,11,11,.50)),linear-gradient(0deg,rgba(12,11,11,.55),transparent 38%); }
+    .cultureHeroInner { padding-block: 235px 125px; }
+    .cultureHero h1 { font-size: clamp(48px,11vw,64px); }
+    .cultureHeroInner > p { font-size: 15px; }
+    .cultureHeroBottom { font-size: 9px; letter-spacing: .09em; }
+    .cultureSection { padding-block: 72px; }
+    .cultureSection h2, .cultureIntroduction h2, .cultureEtiquette h2, .cultureEnding h2 { font-size: clamp(39px,9vw,54px); }
+    .cultureSectionHeader { margin-bottom: 29px; }
+    .cultureFaithGrid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 13px; }
+    .cultureFeatureCard, .cultureFeatureCardTall { grid-row: auto; height: 370px; }
+    .cultureFeatureCardTall { height: 480px; }
+    .cultureFeatureCaption { right: 20px; bottom: 22px; left: 20px; }
+    .cultureHospitalityPhotos { min-height: 500px; }
+    .cultureHospitalityMain { inset: 0 13% 65px 0; }
+    .cultureHospitalityInset { border-width: 6px; }
+    .cultureWeddingPhoto { min-height: 420px; }
+    .cultureWeddingSteps { grid-template-columns: 1fr; }
+    .cultureWeddingSteps > article { border-right: 0; border-bottom: 1px solid #DED5C8; }
+    .cultureWeddingMini { grid-column: auto; height: 200px; }
+    .cultureClothingImages { min-height: 520px; }
+    .cultureVerticalCaption { right: -17px; font-size: 9px; }
+    .cultureMusicGrid { grid-template-columns: 1fr; }
+    .cultureMusicVisual { height: 390px; }
+    .cultureMusicTypes { grid-column: auto; flex-direction: column; gap: 0; }
+    .cultureMusicTypes > div { border-bottom: 1px solid rgba(255,255,255,.15); }
+    .cultureCraftsGallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .cultureCraftItem, .cultureCraftItemLarge { grid-row: auto; height: 345px; }
+    .cultureCraftItemLarge { height: 420px; }
+    .cultureNationalGallery { grid-template-columns: 1fr; }
+    .cultureNationalBig, .cultureNationalSmall { height: 390px; }
+    .cultureDiningPhoto { height: 475px; }
+    .cultureEtiquette { padding-block: 75px; }
+    .cultureEtiquetteGrid { grid-template-columns: 1fr; }
+    .cultureEtiquetteGrid article { padding: 24px 0; }
+    .cultureEtiquetteGrid article + article { padding-left: 0; border-left: 0; border-top: 1px solid #E5DED6; }
+    .cultureEnding { min-height: 470px; }
+}
+@media (max-width: 420px) {
+    .cultureCategoryIndex { grid-template-columns: 1fr; }
+    .cultureCategoryIndex a { min-height: 56px; }
+    .cultureHospitalityPhotos { min-height: 410px; }
+    .cultureClothingImages { min-height: 415px; }
+    .cultureClothingSmall { border-width: 5px; }
+    .culturePhotoTag { font-size: 8px; }
+    .cultureHeroLink { gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .culturePage *, .culturePage *::before, .culturePage *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; }
+}

@@ -1,0 +1,621 @@
+/* ==========================================================
+   VISIT JORDAN — ABOUT JORDAN
+   Shared Navbar and Footer: ../../../landingPage.css
+   Page structure: pages/about/aboutHtml/aboutJordan.html
+   Image paths below are relative to THIS stylesheet.
+   ========================================================== */
+
+:root {
+    --aboutRed: #CE1126;
+    --aboutRedHover: #A50E1E;
+    --aboutInk: #171717;
+    --aboutMuted: #626262;
+    --aboutCream: #FAF7F2;
+}
+
+/* ================= HEADER AND NAVIGATION ================= */
+
+.siteHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.mainNavbar {
+    position: relative;
+    z-index: 201;
+}
+
+/* Keep the main navigation's spacing consistent with Landing Page. */
+.navLinks {
+    gap: clamp(16px, 2vw, 34px);
+}
+
+/* This page links to just one Events page: no Events dropdown. */
+.navPending {
+    display: block;
+    padding: 10px 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: default;
+}
+
+/* Mega menu photos must resolve from pages/about/aboutCss/. */
+.aboutMegaPhoto {
+    min-height: 215px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#aboutMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/royal.png");
+}
+
+#planMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/petra.png");
+}
+
+#thingsMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/bole.png");
+}
+
+/* Navigation becomes white only when a mega menu is open. */
+.siteHeader:has(.aboutDetails[open]) .navPending {
+    color: var(--aboutInk);
+}
+
+/* The active link should stay visible inside the dropdown. */
+.navLinks .aboutMegaLinks a[aria-current="page"] {
+    color: var(--aboutRed);
+}
+
+/* ================= COMMON ABOUT ELEMENTS ================= */
+
+.aboutContainer {
+    width: min(1160px, 88%);
+    margin-inline: auto;
+}
+
+.aboutButton {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 5px;
+    background-color: var(--aboutRed);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.aboutButton:hover {
+    background-color: var(--aboutRedHover);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.aboutCenteredHeading {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.aboutCenteredHeading h1,
+.aboutCenteredHeading h2,
+.aboutCities h2,
+.aboutTraditions h2,
+.aboutCuisine h2 {
+    margin-bottom: 20px;
+    color: var(--aboutRed);
+    font-size: clamp(30px, 3.3vw, 46px);
+    font-weight: 700;
+    line-height: 1.22;
+}
+
+.aboutCenteredHeading p,
+.aboutCities p,
+.aboutTraditions p,
+.aboutCuisine p {
+    margin-bottom: 26px;
+    color: var(--aboutMuted);
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+/* ================= PHOTO HERO ================= */
+
+.aboutHero {
+    position: relative;
+    width: 100%;
+    height: clamp(380px, 44vw, 610px);
+    overflow: hidden;
+    background-color: #222222;
+}
+
+.aboutHeroPhoto {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+}
+
+/* Darkens the header area so the white navigation is readable. */
+.aboutHero::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.43),
+        rgba(0, 0, 0, 0.04) 60%,
+        transparent
+    );
+    content: "";
+    pointer-events: none;
+}
+
+/* ================= WELCOME SECTION ================= */
+
+.aboutIntroduction {
+    padding-top: 38px;
+    padding-bottom: 100px;
+}
+
+.aboutMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 45px;
+    color: var(--aboutRed);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ================= HISTORY AND NATURE ================= */
+
+.aboutHistory {
+    padding-bottom: 90px;
+}
+
+.aboutHistoryPhotos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 58px;
+}
+
+.aboutHistoryPhotos img {
+    display: block;
+    width: 100%;
+    height: 330px;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.aboutHistoryPhotos img:hover {
+    transform: translateY(-5px);
+}
+
+/* ================= JORDAN FACTS ================= */
+
+.aboutGeography {
+    padding-top: 20px;
+    padding-bottom: 115px;
+}
+
+.aboutFacts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.aboutFact {
+    padding: 20px 15px;
+}
+
+.aboutFactIcon {
+    display: block;
+    margin-bottom: 17px;
+    color: var(--aboutRed);
+    font-size: 46px;
+    line-height: 1.15;
+}
+
+.aboutFact h3 {
+    margin-bottom: 12px;
+    color: var(--aboutRed);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.aboutFact p {
+    color: var(--aboutMuted);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.weatherLink {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--aboutRed);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.weatherLink:hover {
+    text-decoration: underline;
+}
+
+.aboutCenterAction {
+    margin-top: 48px;
+    text-align: center;
+}
+
+/* ================= CITIES AND TOWNS ================= */
+
+.aboutCities {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 520px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #171717;
+}
+
+.aboutCitiesPhoto,
+.aboutCitiesShade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.aboutCitiesPhoto {
+    z-index: -2;
+    object-fit: cover;
+    object-position: center 52%;
+}
+
+.aboutCitiesShade {
+    z-index: -1;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.83),
+        rgba(0, 0, 0, 0.05) 83%
+    );
+}
+
+.aboutCitiesContent {
+    padding-bottom: 62px;
+}
+
+.aboutCities h2 {
+    color: #FFFFFF;
+}
+
+.aboutCities p {
+    max-width: 740px;
+    color: #F1F1F1;
+}
+
+/* ================= OUR TRADITIONS ================= */
+
+.aboutTraditions {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.75fr) minmax(0, 2fr);
+    align-items: center;
+    gap: 48px;
+    padding-top: 115px;
+    padding-bottom: 105px;
+}
+
+.aboutTraditions h2 {
+    font-size: clamp(28px, 2.8vw, 40px);
+}
+
+.aboutTraditionCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.aboutTraditionCard {
+    position: relative;
+    display: block;
+    height: 375px;
+    overflow: hidden;
+    border-radius: 12px;
+    isolation: isolate;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.aboutTraditionCard img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 350ms ease;
+}
+
+.aboutCardShade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent 62%);
+}
+
+.aboutCardLabel {
+    position: absolute;
+    right: 20px;
+    bottom: 22px;
+    left: 20px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.aboutTraditionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 33px rgba(0, 0, 0, 0.17);
+}
+
+.aboutTraditionCard:hover img {
+    transform: scale(1.04);
+}
+
+/* ================= JORDANIAN FOOD ================= */
+
+.aboutCuisine {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 70px;
+    padding-bottom: 115px;
+}
+
+.aboutCuisinePhoto {
+    display: block;
+    width: 100%;
+    height: 390px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.aboutCuisineText {
+    max-width: 480px;
+}
+
+/* ================= TRAVEL INFORMATION ================= */
+
+.travelInfoSection {
+    padding-top: 90px;
+    padding-bottom: 105px;
+}
+
+.travelInfoPending {
+    color: #A1A1A1;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: default;
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+.aboutButton:focus-visible,
+.weatherLink:focus-visible,
+.aboutTraditionCard:focus-visible {
+    outline: 3px solid var(--aboutRed);
+    outline-offset: 4px;
+}
+
+/* ================= RESPONSIVE: TABLET ================= */
+
+@media (max-width: 1050px) {
+    /* Keep primary links available without requiring JavaScript. */
+    .mainNavbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .navLinks {
+        position: relative;
+        inset: auto;
+        display: flex;
+        flex: 0 0 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        max-height: none;
+        padding: 0 0 4px;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .navLinks > li {
+        width: auto;
+    }
+
+    .navLinks .aboutDropdownBtn,
+    .navLinks > li > a,
+    .navPending {
+        width: auto;
+        padding: 10px 0;
+        color: #FFFFFF;
+        font-size: 13px;
+    }
+
+    .siteHeader:has(.aboutDetails[open]) .navLinks .aboutDropdownBtn,
+    .siteHeader:has(.aboutDetails[open]) .navLinks > li > a,
+    .siteHeader:has(.aboutDetails[open]) .navPending {
+        color: var(--aboutInk);
+    }
+
+    .menuToggleBtn {
+        display: none;
+    }
+
+    .aboutMegaMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    .aboutTraditions {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .aboutTraditionsIntro {
+        max-width: 700px;
+    }
+
+    .aboutCuisine {
+        gap: 36px;
+    }
+}
+
+/* ================= RESPONSIVE: MOBILE ================= */
+
+@media (max-width: 650px) {
+    .aboutContainer {
+        width: 90%;
+    }
+
+    .aboutHero {
+        height: 420px;
+    }
+
+    .navLogo {
+        font-size: 18px;
+    }
+
+    .navLinks {
+        justify-content: flex-start;
+        column-gap: 18px;
+    }
+
+    .navLinks .aboutDropdownBtn,
+    .navLinks > li > a,
+    .navPending {
+        font-size: 12px;
+    }
+
+    .aboutIntroduction {
+        padding-top: 28px;
+        padding-bottom: 65px;
+    }
+
+    .aboutMeta {
+        margin-bottom: 28px;
+        font-size: 12px;
+    }
+
+    .aboutCenteredHeading h1,
+    .aboutCenteredHeading h2,
+    .aboutCities h2,
+    .aboutTraditions h2,
+    .aboutCuisine h2 {
+        font-size: clamp(28px, 7vw, 36px);
+    }
+
+    .aboutCenteredHeading p,
+    .aboutCities p,
+    .aboutTraditions p,
+    .aboutCuisine p {
+        font-size: 15px;
+    }
+
+    .aboutHistoryPhotos,
+    .aboutFacts,
+    .aboutCuisine {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutHistoryPhotos img {
+        height: 265px;
+    }
+
+    .aboutHistory {
+        padding-bottom: 60px;
+    }
+
+    .aboutGeography {
+        padding-bottom: 75px;
+    }
+
+    .aboutFacts {
+        gap: 15px;
+    }
+
+    .aboutCities {
+        min-height: 440px;
+    }
+
+    .aboutCitiesContent {
+        padding-bottom: 45px;
+    }
+
+    .aboutTraditions {
+        padding-top: 75px;
+        padding-bottom: 70px;
+    }
+
+    .aboutTraditionCard {
+        height: 270px;
+    }
+
+    .aboutCardLabel {
+        right: 10px;
+        bottom: 15px;
+        left: 10px;
+        font-size: 15px;
+    }
+
+    .aboutCuisine {
+        gap: 28px;
+        padding-bottom: 75px;
+    }
+
+    .aboutCuisinePhoto {
+        height: 280px;
+    }
+
+    .travelInfoSection {
+        padding-top: 75px;
+        padding-bottom: 85px;
+    }
+}
+
+@media (max-width: 380px) {
+    .aboutTraditionCards {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutTraditionCard {
+        height: 285px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aboutButton,
+    .aboutHistoryPhotos img,
+    .aboutTraditionCard,
+    .aboutTraditionCard img {
+        transition: none;
+    }
+}
