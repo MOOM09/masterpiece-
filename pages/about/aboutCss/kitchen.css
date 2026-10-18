@@ -1,0 +1,175 @@
+/* ==============================================================
+   VISIT JORDAN — OUR CUISINE
+   Shared navbar, footer and travel info: ../../../landingPage.css
+   Food images: ../aboutImage/kitchenImage/ (relative to kitchen.html)
+   HTML + CSS tabs, no JavaScript required.
+   ============================================================== */
+:root {
+    --kitchenRed: #CE1126;
+    --kitchenRedDark: #A70F21;
+    --kitchenInk: #201D1A;
+    --kitchenMuted: #68635D;
+    --kitchenPaper: #FFFDF9;
+    --kitchenCream: #F7F2EB;
+    --kitchenLine: #E9DED1;
+    --kitchenGold: #B99866;
+}
+
+/* Shared navbar adjustments, in line with the other About pages */
+.siteHeader { position: absolute; top: 0; left: 0; width: 100%; z-index: 200; }
+.mainNavbar { position: relative; z-index: 201; }
+.navLinks { gap: clamp(16px, 2vw, 34px); }
+.navPending { display: block; padding: 10px 0; color: #FFFFFF; font-size: 13px; font-weight: 600; white-space: nowrap; cursor: default; }
+.aboutMegaPhoto { min-height: 215px; background-position: center; background-size: cover; background-repeat: no-repeat; }
+#aboutMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/royal.png'); }
+#planMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/petra.png'); }
+#thingsMenu .aboutMegaPhoto { background-image: url('../../../landingPageImage/bole.png'); }
+.siteHeader:has(.aboutDetails[open]) .navPending { color: #171717; }
+.navLinks .aboutMegaLinks a[aria-current="page"] { color: var(--kitchenRed); }
+.travelInfoPending { color: #A1A1A1; font-size: 15px; font-weight: 600; cursor: default; }
+
+.kitchenPage {
+    color: var(--kitchenInk);
+    background: var(--kitchenPaper);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: clip;
+}
+.kitchenPage *, .kitchenPage *::before, .kitchenPage *::after { box-sizing: border-box; }
+.kitchenPage a { text-decoration: none; }
+.kitchenPage [id] { scroll-margin-top: 95px; }
+.kitchenContainer { width: min(1230px, 88%); margin-inline: auto; }
+.kitchenEyebrow { display: block; font-size: 11px; font-weight: 800; color: var(--kitchenRed); letter-spacing: .19em; text-transform: uppercase; line-height: 1.65; }
+.kitchenEyebrowLight { color: #F9CDC4; }
+
+/* Hero */
+.kitchenHero { position: relative; isolation: isolate; display: flex; align-items: center; min-height: clamp(635px, 66vw, 770px); overflow: hidden; color: white; background: #312720; }
+.kitchenHeroImage { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+.kitchenHeroShade { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(13,12,11,.90) 0%, rgba(13,12,11,.74) 40%, rgba(13,12,11,.23) 100%), linear-gradient(0deg, rgba(0,0,0,.25), transparent 38%); }
+.kitchenHeroInner { padding-block: 195px 132px; position: relative; }
+.kitchenHero h1 { max-width: 900px; font-family: Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(58px, 7.2vw, 112px); line-height: 1.09; letter-spacing: -.045em; margin: 19px 0 22px; color: white; }
+.kitchenHero h1 em { display: block; font-weight: 400; color: #FFE1BD; }
+.kitchenHeroInner > p { max-width: 560px; font-size: clamp(16px, 1.55vw, 19px); line-height: 1.82; color: #F7F3EC; margin: 0; }
+.kitchenHeroButton { margin-top: 32px; display: inline-flex; align-items: center; justify-content: space-between; gap: 34px; min-height: 54px; padding: 14px 26px; background: var(--kitchenRed); border: 1px solid var(--kitchenRed); border-radius: 5px; color: white; font-size: 13px; font-weight: 800; transition: transform .25s ease, background .25s ease; }
+.kitchenHeroButton:hover { transform: translateY(-3px); background: var(--kitchenRedDark); }
+.kitchenHeroBottom { display: flex; justify-content: space-between; align-items: center; gap: 15px; position: absolute; bottom: 30px; left: 6%; right: 6%; font-size: 10px; font-weight: 700; color: rgba(255,255,255,.8); letter-spacing: .2em; }
+
+/* Breadcrumb and introduction */
+.kitchenBreadcrumb { display: flex; flex-wrap: wrap; gap: 13px; padding-block: 27px; font-size: 12px; color: #867C72; }
+.kitchenBreadcrumb a { color: var(--kitchenRed); }
+.kitchenBreadcrumb strong { font-weight: 700; color: var(--kitchenInk); }
+.kitchenWelcome { padding-block: 82px 77px; text-align: center; }
+.kitchenWelcome h2, .kitchenPanelHeading h2 { margin: 12px 0 19px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(41px, 4.4vw, 64px); font-weight: 400; line-height: 1.15; letter-spacing: -.035em; color: var(--kitchenInk); }
+.kitchenWelcome h2 em, .kitchenPanelHeading h2 em { color: var(--kitchenRed); font-weight: 400; }
+.kitchenWelcome > p { max-width: 710px; margin: 0 auto; color: var(--kitchenMuted); font-size: 15px; line-height: 1.9; }
+.kitchenMiniStats { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 35px; color: #8C8277; font-size: 12px; letter-spacing: .04em; }
+.kitchenMiniStats span { display: inline-flex; align-items: baseline; gap: 7px; }
+.kitchenMiniStats b { color: var(--kitchenInk); font-family: Georgia, serif; font-size: 26px; font-weight: 400; }
+.kitchenMiniStats i { width: 4px; height: 4px; border-radius: 100%; background: #BEAA97; }
+
+/* Two click-to-switch tabs — pure CSS */
+.kitchenDirectory { padding-bottom: 115px; }
+.kitchenRadio { position: absolute; opacity: 0; width: 1px; height: 1px; overflow: hidden; }
+.kitchenTabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #D9D1C7; margin-bottom: 66px; }
+.kitchenTabs label { position: relative; min-height: 87px; display: flex; gap: 13px; align-items: center; justify-content: center; padding: 22px 15px; color: #9B938A; cursor: pointer; font-size: clamp(14px, 1.5vw, 20px); font-weight: 650; transition: color .24s ease, background .24s ease; }
+.kitchenTabs label:hover { color: var(--kitchenRed); background: #FAF5EF; }
+.kitchenTabs label::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--kitchenRed); opacity: 0; transform: scaleX(.5); transition: opacity .25s ease, transform .25s ease; }
+.kitchenTabs .tabIcon { font-size: 22px; color: #B6AAA0; line-height: 1; }
+.kitchenTabs small { font-size: 11px; font-weight: 600; color: #AD9E90; }
+#showSavory:checked ~ .kitchenTabs label[for="showSavory"], #showSweet:checked ~ .kitchenTabs label[for="showSweet"] { color: var(--kitchenRed); }
+#showSavory:checked ~ .kitchenTabs label[for="showSavory"]::after, #showSweet:checked ~ .kitchenTabs label[for="showSweet"]::after { opacity: 1; transform: scaleX(1); }
+#showSavory:focus-visible ~ .kitchenTabs label[for="showSavory"], #showSweet:focus-visible ~ .kitchenTabs label[for="showSweet"] { outline: 3px solid var(--kitchenRed); outline-offset: -5px; }
+.kitchenPanel { display: none; }
+#showSavory:checked ~ .kitchenPanels .savoryPanel, #showSweet:checked ~ .kitchenPanels .sweetPanel { display: block; }
+.kitchenPanelHeading { margin: 0 0 43px; text-align: center; }
+.kitchenPanelHeading > p { margin: 0; color: var(--kitchenMuted); font-size: 14px; line-height: 1.8; }
+
+/* Every recipe has its own full-width grid section */
+.foodCollection { display: grid; gap: 25px; }
+.foodStory { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: clamp(25px, 4.5vw, 70px); padding: 26px; border: 1px solid var(--kitchenLine); background: #FFFFFF; border-radius: 15px; box-shadow: 0 10px 40px rgba(46, 33, 23, .035); min-height: 405px; }
+.foodStory:nth-child(even) { background: var(--kitchenCream); }
+.foodStory:nth-child(even) .foodVisual { order: 2; }
+.foodStory:nth-child(even) .foodCopy { order: 1; padding-left: 26px; }
+.foodVisual { min-width: 0; }
+.foodImageLink { position: relative; display: block; height: 100%; min-height: 340px; border-radius: 9px; overflow: hidden; isolation: isolate; background: #DDD0C0; }
+.foodImageLink::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(25,14,8,.18)); opacity: .45; transition: opacity .35s ease, background .35s ease; }
+.foodImageLink img { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .55s cubic-bezier(.25,.75,.22,1), filter .45s ease; }
+.foodImageLink:hover img, .foodImageLink:focus-visible img { transform: scale(1.075); filter: brightness(.72); }
+.foodImageLink:hover::after, .foodImageLink:focus-visible::after { opacity: .95; background: rgba(15,12,10,.24); }
+.foodPlay { position: absolute; z-index: 2; width: 67px; height: 67px; top: 50%; left: 50%; display: grid; place-items: center; transform: translate(-50%,-45%) scale(.9); border-radius: 50%; background: rgba(255,255,255,.94); color: var(--kitchenRed); box-shadow: 0 15px 35px rgba(0,0,0,.12); opacity: 0; transition: opacity .35s ease, transform .35s ease; }
+.foodPlay svg { width: 32px; height: 32px; margin-left: 3px; }
+.foodImageLink:hover .foodPlay, .foodImageLink:focus-visible .foodPlay { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+.foodImageLink:focus-visible, .foodVideoLink:focus-visible, .kitchenPage a:focus-visible { outline: 3px solid var(--kitchenRed); outline-offset: 4px; }
+.foodCopy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 25px 13px 25px 0; }
+.foodNumber { margin: 0 0 13px; font-size: 11px; font-weight: 800; color: var(--kitchenRed); letter-spacing: .15em; }
+.foodNumber span { margin: 0 5px; color: var(--kitchenGold); }
+.foodCopy h3 { margin: 0 0 17px; color: var(--kitchenInk); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(31px, 3vw, 48px); font-weight: 500; line-height: 1.15; letter-spacing: -.025em; }
+.foodIntro { max-width: 535px; color: var(--kitchenMuted); font-size: 14px; line-height: 1.88; margin: 0; }
+.foodIngredients { margin-top: 22px; }
+.foodIngredients h4 { font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: .12em; color: var(--kitchenInk); margin: 0 0 12px; }
+.foodChips { display: flex; flex-wrap: wrap; gap: 7px; }
+.foodChips span { display: inline-block; background: #F5EFE7; border: 1px solid #EDE3D8; color: #78685A; font-size: 11px; line-height: 1.45; padding: 8px 11px; border-radius: 5px; }
+.foodStory:nth-child(even) .foodChips span { background: white; }
+.foodPlace { display: flex; align-items: center; gap: 8px; margin: 22px 0 0; color: #7F7163; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.foodPlace svg { flex: 0 0 16px; width: 16px; height: 16px; color: var(--kitchenRed); }
+.foodVideoLink { display: inline-flex; gap: 25px; align-items: center; justify-content: space-between; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--kitchenRed); color: var(--kitchenRed); font-size: 12px; font-weight: 800; transition: gap .25s ease, color .25s ease; }
+.foodVideoLink:hover { gap: 37px; color: var(--kitchenRedDark); }
+
+/* Closing section */
+.kitchenClosing { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; background: #201A18; color: white; }
+.kitchenClosingMedia { min-height: 500px; overflow: hidden; }
+.kitchenClosingMedia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.kitchenClosingText { align-self: center; padding: clamp(55px, 7vw, 110px); }
+.kitchenClosingText h2 { margin: 16px 0 24px; color: #FFFFFF; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(36px, 4.1vw, 66px); font-weight: 400; line-height: 1.17; letter-spacing: -.03em; }
+.kitchenClosingText h2 em { color: #F5CEA9; }
+.kitchenClosingText p { max-width: 480px; margin: 0; font-size: 14px; line-height: 1.9; color: #E4DAD1; }
+.kitchenClosingText a { display: inline-flex; align-items: center; gap: 25px; margin-top: 28px; padding-bottom: 9px; border-bottom: 1px solid #F5CEA9; font-weight: 700; font-size: 13px; color: #FFFFFF; }
+.kitchenClosingText a:hover { color: #F5CEA9; }
+
+@media (max-width: 1050px) {
+    .mainNavbar { display: flex; flex-wrap: wrap; justify-content: space-between; }
+    .navLinks { position: relative; inset: auto; display: flex; flex: 0 0 100%; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; max-height: none; padding: 0 0 4px; overflow: visible; background: transparent; box-shadow: none; }
+    .navLinks > li { width: auto; }
+    .navLinks .aboutDropdownBtn, .navLinks > li > a, .navPending { width: auto; padding: 10px 0; color: #FFFFFF; font-size: 13px; }
+    .siteHeader:has(.aboutDetails[open]) .navLinks .aboutDropdownBtn, .siteHeader:has(.aboutDetails[open]) .navLinks > li > a, .siteHeader:has(.aboutDetails[open]) .navPending { color: #171717; }
+    .menuToggleBtn { display: none; }
+    .aboutMegaMenu { position: absolute; top: 100%; left: 0; width: 100%; }
+    .foodStory { gap: 26px; padding: 18px; }
+    .foodStory:nth-child(even) .foodCopy { padding-left: 8px; }
+    .foodCopy h3 { font-size: clamp(29px, 3.8vw, 43px); }
+}
+@media (max-width: 750px) {
+    .kitchenContainer { width: 91%; }
+    .kitchenHero { min-height: 640px; }
+    .kitchenHeroInner { padding-block: 190px 95px; }
+    .kitchenHero h1 { font-size: clamp(54px, 10vw, 72px); }
+    .kitchenWelcome { padding-block: 61px 57px; }
+    .kitchenDirectory { padding-bottom: 65px; }
+    .kitchenTabs { margin-bottom: 48px; }
+    .kitchenTabs label { flex-wrap: wrap; gap: 7px; min-height: 75px; font-size: 15px; }
+    .kitchenTabs small { width: 100%; text-align: center; }
+    .foodStory { grid-template-columns: 1fr; gap: 0; padding: 14px; }
+    .foodStory:nth-child(even) .foodVisual, .foodStory:nth-child(even) .foodCopy { order: initial; }
+    .foodImageLink { height: 310px; min-height: 310px; }
+    .foodCopy, .foodStory:nth-child(even) .foodCopy { padding: 26px 15px 29px; }
+    .foodCopy h3 { font-size: 39px; }
+    .foodPlay { opacity: .9; width: 52px; height: 52px; transform: translate(-50%,-50%); }
+    .foodPlay svg { width: 25px; height: 25px; }
+    .kitchenClosing { grid-template-columns: 1fr; }
+    .kitchenClosingMedia { min-height: 300px; height: 320px; }
+    .kitchenClosingText { padding: 55px 6%; }
+}
+@media (max-width: 510px) {
+    .navLinks { justify-content: flex-start; column-gap: 15px; }
+    .navLinks .aboutDropdownBtn, .navLinks > li > a, .navPending { font-size: 12px; }
+    .kitchenHeroBottom { letter-spacing: .06em; font-size: 9px; }
+    .kitchenMiniStats { gap: 10px 15px; }
+    .kitchenMiniStats b { font-size: 21px; }
+    .kitchenTabs label { gap: 5px; font-size: 13px; }
+    .kitchenTabs .tabIcon { font-size: 17px; }
+    .foodImageLink { min-height: 240px; height: 240px; }
+    .foodCopy h3 { font-size: 33px; }
+    .foodIntro { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .kitchenPage *, .kitchenPage *::before, .kitchenPage *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation: none !important; }
+}

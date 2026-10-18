@@ -1,0 +1,1092 @@
+/* ==========================================================
+   VISIT JORDAN | HISTORY — SHARED NAVIGATION
+   Shared layout comes from ../../../landingPage.css.
+   Image URLs in this file resolve from pages/about/aboutCss/.
+   ========================================================== */
+
+.siteHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.mainNavbar {
+    position: relative;
+    z-index: 201;
+}
+
+.navLinks {
+    gap: clamp(16px, 2vw, 34px);
+}
+
+.navPending {
+    display: block;
+    padding: 10px 0;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.aboutMegaPhoto {
+    min-height: 215px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#aboutMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/royal.png");
+}
+
+#planMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/petra.png");
+}
+
+#thingsMenu .aboutMegaPhoto {
+    background-image: url("../../../landingPageImage/bole.png");
+}
+
+.siteHeader:has(.aboutDetails[open]) .navPending {
+    color: #171717;
+}
+
+.navLinks .aboutMegaLinks a[aria-current="page"] {
+    color: #CE1126;
+}
+
+.travelInfoPending {
+    color: #A1A1A1;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: default;
+}
+
+/* Responsive navigation without requiring JavaScript. */ @media (max-width: 1050px) {
+    .mainNavbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .navLinks {
+        position: relative;
+        inset: auto;
+        display: flex;
+        flex: 0 0 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        max-height: none;
+        padding: 0 0 4px;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+    }
+    .navLinks > li {
+        width: auto;
+    }
+    .navLinks .aboutDropdownBtn,     .navLinks > li > a,     .navPending {
+        width: auto;
+        padding: 10px 0;
+        color: #FFFFFF;
+        font-size: 13px;
+    }
+    .siteHeader:has(.aboutDetails[open]) .navLinks .aboutDropdownBtn,     .siteHeader:has(.aboutDetails[open]) .navLinks > li > a,     .siteHeader:has(.aboutDetails[open]) .navPending {
+        color: #171717;
+    }
+    .menuToggleBtn {
+        display: none;
+    }
+    .aboutMegaMenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .navLogo {
+        font-size: 18px;
+    }
+    .navLinks {
+        justify-content: flex-start;
+        column-gap: 18px;
+    }
+    .navLinks .aboutDropdownBtn,     .navLinks > li > a,     .navPending {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================================
+   VISIT JORDAN | OUR HISTORY
+   Full chronological page, historical imagery, battles, kings.
+   ========================================================== */
+/* ============================================================
+   VISIT JORDAN — OUR HISTORY
+   Page-only styles. Navbar, travel info, footer: landingPage.css
+   All custom classes use camelCase; no JavaScript required.
+   ============================================================ */ :root {
+    --historyRed: #CE1126;
+    --historyInk: #171717;
+    --historyMuted: #5a5a59;
+    --historyCream: #FAF7F2;
+    --historyPaper: #fff;
+    --historyBorder: #e7dfd7;
+    --historyBlue: #164f62;
+}
+
+.historyPage {
+    background: var(--historyCream);
+    color: var(--historyInk);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.historyPage a {
+    color: inherit;
+}
+
+.historyContainer {
+    width: min(1160px,88%);
+    margin-inline: auto;
+}
+
+.historyHero {
+    min-height: clamp(570px,57vw,710px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    background: #171717;
+    color: white;
+    overflow: hidden;
+}
+
+.historyHero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(105deg,#171717 5%,#2c2423 55%,#422225 100%);
+}
+
+.historyHero:after {
+    content: "1916   •   1921   •   1946";
+    position: absolute;
+    right: -2%;
+    bottom: 5%;
+    font-size: clamp(38px,7vw,116px);
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: -.05em;
+    color: rgba(255,255,255,.042);
+    pointer-events: none;
+}
+
+.historyHeroGlow {
+    position: absolute;
+    right: 3%;
+    top: 6%;
+    width: min(55vw,720px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.historyHeroGlow:before,.historyHeroGlow:after {
+    content: "";
+    position: absolute;
+    inset: 14%;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 50%;
+}
+
+.historyHeroGlow:after {
+    inset: 31%;
+}
+
+.historyHeroInner {
+    position: relative;
+    z-index: 1;
+    padding: 145px 0 110px;
+}
+
+.historyHero h1 {
+    max-width: 860px;
+    font-family: Georgia,serif;
+    font-size: clamp(46px,6.4vw,92px);
+    line-height: 1.07;
+    letter-spacing: -.035em;
+    font-weight: 500;
+    margin: 24px 0 26px;
+    color: #fff;
+}
+
+.historyHero h1 em {
+    font-weight: 500;
+    color: #ffdadb;
+}
+
+.historyHero p {
+    max-width: 680px;
+    color: #e9e5e2;
+    font-size: clamp(15px,1.25vw,18px);
+    line-height: 1.82;
+}
+
+.historyEyebrow {
+    color: var(--historyRed);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .19em;
+    line-height: 1.6;
+    text-transform: uppercase;
+    display: block;
+}
+
+.historyEyebrow--light {
+    color: #f2afb5;
+}
+
+.historyHeroButton {
+    margin-top: 35px;
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px 23px;
+    border-radius: 4px;
+    background: var(--historyRed);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff!important;
+    transition: background .2s,transform .2s;
+}
+
+.historyHeroButton:hover {
+    background: #a90d1e;
+    transform: translateY(-3px);
+}
+
+.historyHeroSide {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    writing-mode: vertical-rl;
+    letter-spacing: .35em;
+    font-size: 10px;
+    color: #dfbabe;
+}
+
+.historyBreadcrumb {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 31px;
+    color: #8c7774;
+    font-size: 12px;
+}
+
+.historyBreadcrumb a {
+    color: var(--historyRed);
+}
+
+.historySectionHeading {
+    max-width: 780px;
+    margin-bottom: 43px;
+}
+
+.historySectionHeading--center {
+    text-align: center;
+    margin-inline: auto;
+}
+
+.historySectionHeading h2 {
+    font-family: Georgia,serif;
+    font-size: clamp(33px,3.5vw,52px);
+    line-height: 1.18;
+    margin: 12px 0 17px;
+    color: var(--historyInk);
+    font-weight: 500;
+}
+
+.historySectionHeading p {
+    color: var(--historyMuted);
+    line-height: 1.87;
+    font-size: 15px;
+}
+
+.historyTimelineSection {
+    padding: 95px 0 115px;
+}
+
+.historyTimeline {
+    list-style: none;
+    max-width: 950px;
+    margin: 60px auto 0;
+    position: relative;
+}
+
+.historyTimeline:before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    bottom: 15px;
+    left: 32%;
+    width: 1px;
+    background: #bca8a6;
+}
+
+.historyTimelineItem {
+    display: grid;
+    grid-template-columns: 32% 26px 1fr;
+    gap: 0;
+    align-items: start;
+    padding-bottom: 35px;
+}
+
+.historyTimelineDate {
+    font: 500 clamp(18px,2.1vw,28px)/1.35 Georgia,serif;
+    color: var(--historyBlue);
+    text-align: right;
+    padding: 0 30px 0 10px;
+}
+
+.historyTimelineDot {
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    margin-top: 9px;
+    background: var(--historyCream);
+    border: 3px solid var(--historyRed);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.historyTimelineDetail {
+    padding: 0 0 6px 12px;
+}
+
+.historyTimelineDetail h3 {
+    color: var(--historyRed);
+    font: 700 18px/1.35 Arial,sans-serif;
+    margin: 0 0 10px;
+}
+
+.historyTimelineDetail p {
+    color: var(--historyMuted);
+    font-size: 14px;
+    line-height: 1.72;
+    max-width: 530px;
+}
+
+.historyInlineLink {
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+    color: var(--historyBlue)!important;
+}
+
+.historyInlineLink:hover {
+    text-decoration: underline;
+}
+
+.historyTimelineNote {
+    font-size: 12px;
+    color: #857572;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.historyChapterDivider {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    padding: 23px 5%;
+    background: var(--historyInk);
+    color: #f7dedf;
+    font-size: 11px;
+    letter-spacing: .22em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.historyChapterDivider:before,.historyChapterDivider:after {
+    content: "";
+    width: min(85px,12vw);
+    height: 1px;
+    background: rgba(255,255,255,.32);
+}
+
+.historyStory {
+    padding-top: 105px;
+    padding-bottom: 105px;
+}
+
+.historyStory--soft {
+    background: #f1ece5;
+    padding-block: 100px;
+}
+
+.historyStoryGrid {
+    display: grid;
+    grid-template-columns: minmax(0,1.14fr) minmax(0,.86fr);
+    gap: clamp(30px,6vw,86px);
+    align-items: center;
+}
+
+.historyStoryGrid--reverse .historyStoryText {
+    order: 2;
+}
+
+.historyStoryGrid--reverse .historyStoryMedia {
+    order: 1;
+}
+
+.historyStoryText h2 {
+    color: var(--historyInk);
+    font: 500 clamp(30px,3.3vw,48px)/1.14 Georgia,serif;
+    margin: 15px 0 22px;
+    letter-spacing: -.02em;
+}
+
+.historyStoryText p {
+    margin: 0 0 17px;
+    color: var(--historyMuted);
+    font-size: 14.5px;
+    line-height: 1.87;
+}
+
+.historyStoryText strong {
+    color: #29231f;
+}
+
+.historySource {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    vertical-align: middle;
+    margin: 12px 16px 0 0;
+    color: var(--historyRed)!important;
+    border-bottom: 1px solid rgba(206,17,38,.35);
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.historySource:hover {
+    border-bottom-color: var(--historyRed);
+}
+
+.historyStoryMedia {
+    min-width: 0;
+    min-height: 370px;
+    aspect-ratio: 4/4.2;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.historyPhotoPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    text-align: center;
+    padding: 24px;
+    color: #fff;
+    background-image: linear-gradient(0deg,rgba(17,23,27,.86),rgba(27,32,40,.25)),var(--historyOptionalImage,linear-gradient(135deg,#988274,#392e30));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.historyPhotoPlaceholder span {
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: #ffc1c7;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.historyPhotoPlaceholder strong {
+    font: 500 24px/1.3 Georgia,serif;
+    color: #fff;
+}
+
+.historyPhotoPlaceholder small {
+    color: #f3dfde;
+    font-size: 12px;
+}
+
+.historyPhotoPlaceholder--bread {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyBread.jpg');
+}
+
+.historyPhotoPlaceholder--statues {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyAinGhazal.jpg');
+}
+
+.historyPhotoPlaceholder--ammon {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyAmmon.jpg');
+}
+
+.historyPhotoPlaceholder--petra {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyPetra.jpg');
+}
+
+.historyPhotoPlaceholder--jerash {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyJerash.jpg');
+}
+
+.historyPhotoPlaceholder--castles {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyDesertCastles.jpg');
+}
+
+.historyPhotoPlaceholder--karak {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyKarakCastle.jpg');
+}
+
+.historyPhotoPlaceholder--salt {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyOttoman.jpg');
+}
+
+.historyPhotoPlaceholder--independence {
+    --historyOptionalImage: url('../aboutImage/historyImage/historyIndependence.jpg');
+}
+
+.historyBattleGrid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 22px;
+}
+
+.historyBattles {
+    padding-top: 95px;
+    padding-bottom: 104px;
+}
+
+.historyBattleCard {
+    overflow: hidden;
+    border: 1px solid var(--historyBorder);
+    border-radius: 9px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(20,10,10,.035);
+    transition: transform .25s,box-shadow .25s;
+}
+
+.historyBattleCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(20,10,10,.1);
+}
+
+.historyBattleCardMedia {
+    height: 175px;
+    min-height: 0;
+    border-radius: 0;
+}
+
+.historyBattleCardMedia span {
+    font-size: 10px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.historyBattleCardContent {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.historyDateTag {
+    color: var(--historyRed);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.historyBattleCard h3 {
+    font: 500 26px/1.18 Georgia,serif;
+    color: var(--historyInk);
+    margin: 9px 0;
+}
+
+.historyBattleCard p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--historyMuted);
+    margin-bottom: 12px;
+}
+
+.historyBattleCard .historyPlace {
+    color: var(--historyBlue);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.historyBattleCard .historySource {
+    margin-top: auto;
+    font-size: 11px;
+}
+
+.historyNote {
+    max-width: 900px;
+    margin: 36px auto 0;
+    padding: 19px 24px;
+    border-left: 3px solid var(--historyRed);
+    background: #f1eae3;
+}
+
+.historyNote strong {
+    font-size: 13px;
+    color: var(--historyInk);
+}
+
+.historyNote p {
+    margin-top: 8px;
+    line-height: 1.7;
+    font-size: 12px;
+    color: var(--historyMuted);
+}
+
+.historyPortraitMedia,.historyMonarchPortrait {
+    background: #d8d0c7;
+}
+
+.historyPortraitMedia img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #e6dfd7;
+}
+
+.historyPortraitMedia figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent,rgba(0,0,0,.83));
+    color: #fff;
+    padding: 55px 20px 18px;
+    font-size: 12px;
+}
+
+.historyFlagSection {
+    padding: 105px 0;
+    background: #ede7df;
+}
+
+.historyFlagLayout {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.historyFlagPhoto {
+    margin: 0;
+}
+
+.historyFlagPhoto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 38px rgba(0,0,0,.16);
+}
+
+.historyFlagPhoto figcaption {
+    font-size: 12px;
+    color: #756660;
+    margin-top: 14px;
+    text-align: center;
+}
+
+.historyFlagMeanings {
+    display: grid;
+    gap: 10px;
+}
+
+.historyFlagMeaning {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #d8cdc4;
+    align-items: start;
+}
+
+.historyFlagMeaning i {
+    display: block;
+    width: 23px;
+    height: 23px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 50%;
+    margin-top: 4px;
+    background: #111;
+}
+
+.historyFlagMeaning--white i {
+    background: #fff;
+}
+
+.historyFlagMeaning--green i {
+    background: #007a3d;
+}
+
+.historyFlagMeaning--red i {
+    background: #ce1126;
+}
+
+.historyFlagMeaning--seven-pointed-star i {
+    background: #fff;
+    border: 2px solid #ce1126;
+    clip-path: polygon(50% 0%,62% 32%,95% 20%,76% 51%,100% 75%,65% 71%,50% 100%,35% 71%,0% 75%,24% 51%,5% 20%,38% 32%);
+}
+
+.historyFlagMeaning h3 {
+    font: 700 15px Arial,sans-serif;
+    color: #222;
+    margin: 0 0 3px;
+}
+
+.historyFlagMeaning strong {
+    font-size: 11px;
+    color: var(--historyRed);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.historyFlagMeaning p {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--historyMuted);
+}
+
+.historyCenteredSource {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.historyMonarchIntro {
+    padding: 100px 0 40px;
+}
+
+.historyMonarch {
+    padding-top: 70px;
+    padding-bottom: 95px;
+}
+
+.historyMonarch--soft {
+    background: #f1ece5;
+    padding-block: 95px;
+}
+
+.historyMonarchLayout {
+    display: grid;
+    grid-template-columns: minmax(260px,.78fr) minmax(0,1.22fr);
+    gap: clamp(30px,6vw,86px);
+    align-items: center;
+}
+
+.historyMonarchLayout--reverse .historyMonarchPortrait {
+    order: 2;
+}
+
+.historyMonarchLayout--reverse .historyMonarchStory {
+    order: 1;
+}
+
+.historyMonarchPortrait {
+    margin: 0;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+    max-height: 680px;
+    display: flex;
+    flex-direction: column;
+}
+
+.historyMonarchPortrait img {
+    display: block;
+    width: 100%;
+    min-height: 380px;
+    max-height: 650px;
+    object-fit: contain;
+    object-position: center;
+    background: #e2dcd5;
+}
+
+.historyMonarchPortrait figcaption {
+    padding: 13px 16px;
+    background: #222;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+
+.historyMonarchStory h2 {
+    font: 500 clamp(32px,3.6vw,52px)/1.16 Georgia,serif;
+    margin: 13px 0 10px;
+    color: var(--historyInk);
+}
+
+.historyMonarchSubtitle {
+    color: var(--historyRed)!important;
+    font-weight: 700;
+    font-size: 15px!important;
+    margin-bottom: 24px!important;
+}
+
+.historyMonarchStory p {
+    font-size: 14px;
+    color: var(--historyMuted);
+    line-height: 1.87;
+    margin-bottom: 16px;
+}
+
+.historyMilestones {
+    list-style: none;
+    border-left: 2px solid var(--historyRed);
+    padding: 0 0 0 17px;
+    margin: 25px 0 15px;
+    display: grid;
+    gap: 11px;
+}
+
+.historyMilestones li {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.historyMilestones strong {
+    color: var(--historyRed);
+}
+
+.historyReferences {
+    padding-block: 105px 115px;
+}
+
+.historyReferenceGrid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 14px;
+}
+
+.historyReferenceGrid a {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 22px 20px;
+    background: white;
+    border: 1px solid var(--historyBorder);
+    border-radius: 7px;
+    transition: transform .2s,border-color .2s;
+    min-height: 108px;
+}
+
+.historyReferenceGrid a:hover {
+    transform: translateY(-3px);
+    border-color: var(--historyRed);
+}
+
+.historyReferenceGrid strong {
+    font-size: 14px;
+    color: var(--historyInk);
+}
+
+.historyReferenceGrid span {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--historyRed);
+}
+
+.historyEditorialNote {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 12px;
+    color: var(--historyMuted);
+}
+
+.historyPage section[id],.historyPage div[id] {
+    scroll-margin-top: 30px;
+}
+
+.historyPage a:focus-visible {
+    outline: 3px solid var(--historyRed);
+    outline-offset: 4px;
+}
+
+@media(max-width:1050px) {
+    .historyBattleGrid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .historyReferenceGrid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:800px) {
+    .historyContainer {
+        width: 90%;
+    }
+    .historyHeroSide {
+        display: none;
+    }
+    .historyStoryGrid,.historyMonarchLayout,.historyFlagLayout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .historyStoryGrid--reverse .historyStoryText,.historyMonarchLayout--reverse .historyMonarchStory {
+        order: 1;
+    }
+    .historyStoryGrid--reverse .historyStoryMedia,.historyMonarchLayout--reverse .historyMonarchPortrait {
+        order: 2;
+    }
+    .historyStoryMedia {
+        aspect-ratio: 1.5;
+        min-height: 300px;
+    }
+    .historyMonarchPortrait {
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+    }
+    .historyFlagPhoto {
+        max-width: 520px;
+        margin-inline: auto;
+    }
+}
+
+@media(max-width:620px) {
+    .historyHero {
+        min-height: 550px;
+    }
+    .historyHeroInner {
+        padding-top: 185px;
+        padding-bottom: 75px;
+    }
+    .historyHero h1 {
+        font-size: 46px;
+    }
+    .historyHero p {
+        font-size: 14px;
+    }
+    .historyTimelineSection {
+        padding-block: 68px 80px;
+    }
+    .historyTimeline {
+        margin-top: 45px;
+    }
+    .historyTimeline:before {
+        left: 7px;
+    }
+    .historyTimelineItem {
+        position: relative;
+        grid-template-columns: 25px 1fr;
+        gap: 5px;
+        padding-bottom: 31px;
+    }
+    .historyTimelineDate {
+        grid-column: 2;
+        text-align: left;
+        padding: 0;
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .historyTimelineDot {
+        position: absolute;
+        left: 2px;
+        margin: 8px 0 0;
+    }
+    .historyTimelineDetail {
+        grid-column: 2;
+        padding: 0;
+    }
+    .historyTimelineDetail h3 {
+        font-size: 16px;
+    }
+    .historyTimelineDetail p {
+        font-size: 13px;
+    }
+    .historyStory,.historyStory--soft,.historyMonarch,.historyMonarch--soft {
+        padding-block: 65px;
+    }
+    .historyChapterDivider {
+        font-size: 9px;
+        letter-spacing: .13em;
+    }
+    .historyStoryText h2 {
+        font-size: 33px;
+    }
+    .historyBattleGrid,.historyReferenceGrid {
+        grid-template-columns: 1fr;
+    }
+    .historyBattles,.historyFlagSection,.historyReferences {
+        padding-block: 65px;
+    }
+    .historyMonarchIntro {
+        padding: 75px 0 20px;
+    }
+    .historySectionHeading h2 {
+        font-size: 35px;
+    }
+    .historyMonarchPortrait img {
+        min-height: 270px;
+    }
+    .historyMilestones li {
+        grid-template-columns: 88px 1fr;
+        gap: 7px;
+    }
+    .historyFlagLayout {
+        gap: 24px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .historyPage * {
+        transition: none!important;
+        scroll-behavior: auto!important;
+    }
+}
+
+/* Image display: the user's historical photos are shown without placeholder text. */
+.historyPhotoPlaceholder {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.historyBattleCardMedia {
+    background-position: center;
+}
+
+@media (max-width: 1050px) {
+    .historyPage {
+        overflow-x: clip;
+    }
+}

@@ -1,0 +1,2011 @@
+/* =========================================================
+
+   Visit Jordan — Landing Page
+
+   Complete navbar and hero styling.
+
+   ========================================================= */
+:root {
+    --jordanRed: #CE1126;
+    --jordanRedHover: #A50E1E;
+    --white: #FFFFFF;
+    --charcoal: #171717;
+    --warmCream: #FFFFFF;
+    --textMuted: #E5E5E5;
+    --petraGold: #CE1126;
+    --navScrolledBg: rgba(23, 23, 23, 0.96);
+    --softShadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--warmCream);
+    color: var(--charcoal);
+    font-family: Arial, sans-serif;
+}
+
+button, a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+.siteHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    color: var(--white);
+}
+
+.topBar {
+    min-height: 38px;
+    padding: 8px 5%;
+    background-color: rgba(16, 16, 16, 0.48);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.siteName {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.languageSelector {
+    position: relative;
+}
+
+.languageBtn {
+    background: transparent;
+    border: 0;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.languageMenu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 145px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: var(--softShadow);
+    list-style: none;
+    display: none;
+    /* Later: JS will open this dropdown. */
+}
+
+.languageMenu button {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    color: var(--charcoal);
+    text-align: left;
+    border-radius: 6px;
+}
+
+.languageMenu button:hover {
+    background: var(--warmCream);
+}
+
+.mainNavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* JS can add this class when the page is scrolled. */
+.mainNavbar.isScrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--navScrolledBg);
+    box-shadow: var(--softShadow);
+}
+
+.navLogo {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin-left: 12px;
+}
+
+.navLogo span {
+    color: var(--white);
+}
+
+.navLogo strong {
+    color: var(--jordanRed);
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navLinks a {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 0;
+    transition: color .2s ease;
+}
+
+.navLinks a:hover, .navLinks a:focus-visible {
+    color: var(--petraGold);
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profileDropdown {
+    position: relative;
+    margin-right: 12px;
+}
+
+.profileBtn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.16);
+    overflow: hidden;
+}
+
+.profileImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profileMenu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 14px);
+    min-width: 190px;
+    padding: 8px;
+    background-color: var(--white);
+    border: 1px solid rgba(31, 31, 31, 0.08);
+    border-radius: 12px;
+    box-shadow: var(--softShadow);
+    list-style: none;
+}
+
+.profileMenu[hidden] {
+    display: none;
+}
+
+.profileMenu a, .profileMenu button {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--charcoal);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.profileMenu a {
+    display: block;
+}
+
+.profileMenu a:hover, .profileMenu button:hover {
+    background-color: var(--warmCream);
+    color: var(--jordanRed);
+}
+
+.menuToggleBtn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--white);
+    font-size: 24px;
+}
+
+/* ================= HERO SLIDER ================= */
+.heroSection {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--charcoal);
+    color: var(--white);
+}
+
+.heroSlider {
+    min-height: 100vh;
+}
+
+.heroSlide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.heroSlide.activeSlide {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay keeps white text legible on bright photos. */
+.heroSlide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(         90deg,         rgba(0, 0, 0, 0.64) 0%,         rgba(0, 0, 0, 0.28) 60%,         rgba(0, 0, 0, 0.10) 100%     );
+    pointer-events: none;
+}
+
+.heroContent {
+    position: absolute;
+    z-index: 2;
+    left: 8%;
+    bottom: 20%;
+    max-width: 680px;
+}
+
+.heroContent h1, .heroContent h2 {
+    font-size: clamp(36px, 5vw, 70px);
+    font-weight: 800;
+    line-height: 1.13;
+    letter-spacing: -0.035em;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.2);
+}
+
+.heroContent p {
+    max-width: 540px;
+    margin-top: 18px;
+    color: var(--textMuted);
+    font-size: clamp(15px, 1.5vw, 19px);
+    line-height: 1.7;
+}
+
+.heroBtn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 15px 28px;
+    border: 1px solid var(--jordanRed);
+    border-radius: 8px;
+    background-color: var(--jordanRed);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color .25s ease, transform .25s ease;
+}
+
+.heroBtn:hover {
+    background-color: var(--jordanRedHover);
+    border-color: var(--jordanRedHover);
+    transform: translateY(-2px);
+}
+
+.heroControls {
+    position: absolute;
+    z-index: 5;
+    right: 6%;
+    bottom: 11%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.prevSlideBtn, .nextSlideBtn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: var(--white);
+    font-size: 22px;
+}
+
+.prevSlideBtn:hover, .nextSlideBtn:hover {
+    background-color: var(--jordanRed);
+    border-color: var(--jordanRed);
+}
+
+.heroIndicators {
+    position: absolute;
+    z-index: 5;
+    left: 8%;
+    bottom: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.slideIndicator {
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.slideIndicator.activeIndicator {
+    background-color: var(--jordanRed);
+    border-color: var(--jordanRed);
+    color: var(--white);
+}
+
+/* ================= HERO ANIMATION ================= */
+.heroSlide.activeSlide .heroContent {
+    animation: heroReveal .7s ease both;
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ================= TRENDING NOW — GLASSY CAROUSEL ================= */
+.trendingSection {
+    padding: 95px 0 65px;
+    overflow: hidden;
+    background-color: white;
+     color: black;
+}
+
+
+
+.trendingHeader {
+    width: min(1240px, 88%);
+    margin: 0 auto 12px;
+    text-align: center;
+}
+
+.sectionEyebrow {
+    display: block;
+    margin-bottom: 15px;
+    color: #F0818B;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.trendingHeading h2 {
+    color: black;
+    font-size: clamp(32px, 4.3vw, 56px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.trendingHeading h2 span {
+    color: #E52C43;
+}
+
+.trendingHeading p {
+    margin-top: 14px;
+    color: black;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Cards overlap in 3D space instead of scrolling in a horizontal row. */
+.glassCarousel {
+    position: relative;
+    width: 100%;
+    outline-offset: -10px;
+}
+
+.glassCarouselStage {
+    position: relative;
+    height: 575px;
+    width: 100%;
+    overflow: hidden;
+    perspective: 1250px;
+    perspective-origin: 50% 50%;
+    isolation: isolate;
+    touch-action: pan-y;
+}
+
+.glassCarouselStage::after {
+    position: absolute;
+    z-index: 0;
+    right: 10%;
+    bottom: 14px;
+    left: 10%;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    filter: blur(35px);
+    content: "";
+    pointer-events: none;
+}
+
+.glassCard {
+    position: absolute;
+    z-index: 1;
+    top: 49%;
+    left: 50%;
+    display: block;
+    width: clamp(265px, 27vw, 350px);
+    height: 455px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 23px;
+    background: #20252C;
+    box-shadow: 0 24px 75px rgba(0, 0, 0, 0.58);
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    transition: transform 650ms cubic-bezier(.2,.7,.15,1),
+                opacity 550ms ease,
+                filter 550ms ease,
+                box-shadow 350ms ease;
+    will-change: transform;
+}
+
+.glassCard.isActive {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.65), 0 0 35px rgba(206, 17, 38, 0.12);
+    cursor: pointer;
+}
+
+.glassCard:not(.isActive) {
+    cursor: pointer;
+}
+
+.glassCardImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.glassCardShade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 10, 17, 0.01) 10%, rgba(8, 10, 17, 0.13) 35%, rgba(8, 10, 17, 0.9) 82%, rgba(8, 10, 17, 0.98) 100%);
+    pointer-events: none;
+}
+
+.glassCardDetails {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 28px 23px 24px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+}
+
+.glassCategory {
+    padding: 6px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 99px;
+    background: rgba(206, 17, 38, 0.65);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+}
+
+.glassLocation {
+    color: #E6EBF2;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.glassCardDetails h3 {
+    color: #FFFFFF;
+    font-size: 22px;
+    font-weight: 750;
+    line-height: 1.22;
+}
+
+.glassDate {
+    color: #EEDDDD;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.glassDescription {
+    display: -webkit-box;
+    max-height: 58px;
+    overflow: hidden;
+    color: #D7DCE3;
+    font-size: 12px;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.glassExplore {
+    margin-top: 4px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.glassCarouselControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+.glassArrow {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #171717;
+    font-size: 21px;
+    cursor: pointer;
+    transition: background 200ms ease, 
+                color 200ms ease,
+                transform 200ms ease;
+}
+
+.glassArrow:hover {
+    transform: translateY(-2px);
+    background: #CE1126;
+    color: #FFFFFF;
+}
+
+.glassCarouselCounter {
+    min-width: 65px;
+    color: #171717;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.glassCarouselHint {
+    margin-top: 16px;
+    color: #A7ADB9;
+    font-size: 12px;
+    text-align: center;
+}
+
+.glassCarousel:focus-visible,
+.glassArrow:focus-visible,
+.glassCard:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+    .trendingSection {
+        padding: 70px 0 55px;
+    }
+
+    .glassCarouselStage {
+        height: 510px;
+    }
+
+    .glassCard {
+        width: 290px;
+        height: 420px;
+    }
+}
+
+@media (max-width: 520px) {
+    .trendingHeader {
+        width: 90%;
+    }
+
+    .glassCarouselStage {
+        height: 470px;
+    }
+
+    .glassCard {
+        width: min(68vw, 265px);
+        height: 385px;
+        border-radius: 17px;
+    }
+
+    .glassCardDetails {
+        gap: 6px;
+        padding: 19px 16px;
+    }
+
+    .glassCardDetails h3 {
+        font-size: 18px;
+    }
+
+    .glassDescription {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glassCard,
+    .glassArrow {
+        transition: none;
+    }
+}
+
+/* ================= EVENTS GRID ================= */
+.eventsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 22px;
+    align-items: stretch;
+}
+
+/* ================= EVENT CARD ================= */
+.eventCard {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #171717;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eventCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= EVENT IMAGE ================= */
+.eventImage {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.eventImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.eventCard:hover .eventImage img {
+    transform: scale(1.05);
+}
+
+/* ================= DATE BADGE ================= */
+.eventDateBadge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: fit-content;
+    min-width: 65px;
+    height: fit-content;
+    background-color: #CE1126;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
+
+.eventDateBadge span {
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.eventDateBadge small {
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.eventDateBadge em {
+    font-size: 14px;
+    font-style: normal;
+    opacity: 0.85;
+    margin: 7px 0;
+}
+
+/* ================= EVENT CONTENT ================= */
+.eventContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px 20px 24px;
+}
+
+.eventLocation {
+    font-size: 13px;
+    color: #888888;
+    margin: 0 0 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.eventContent h3 {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #171717;
+    margin: 0 0 14px;
+}
+
+.eventDescription {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #777777;
+    margin: 0 0 24px;
+}
+
+/* ================= EVENT TAGS ================= */
+.eventTags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.eventTags span {
+    padding: 7px 15px;
+    border-radius: 30px;
+    background-color: #F0F0F0;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ================= TRAVEL INFORMATION ================= */
+.travelInfoSection {
+    padding: 85px 6% 95px;
+    background-color: #FAF9F7;
+    text-align: center;
+}
+
+.travelInfoTitle {
+    font-size: 38px;
+    font-weight: 500;
+    color: #171717;
+    margin-bottom: 65px;
+}
+
+.travelInfoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 55px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.travelInfoItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.travelInfoIcon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 22px;
+    color: #CE1126;
+}
+
+.travelInfoIcon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.travelInfoItem h3 {
+    font-size: 23px;
+    font-weight: 500;
+    color: #171717;
+    margin-bottom: 16px;
+}
+
+.travelInfoItem p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #777777;
+    max-width: 290px;
+    margin-bottom: 22px;
+}
+
+.travelInfoLink {
+    color: #CE1126;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.travelInfoLink:hover {
+    color: #171717;
+    text-decoration: underline;
+}
+
+/* =========================================================
+
+   VISIT JORDAN — POLISH, HOVER & COMPLETE RESPONSIVE
+
+   Keep this section at the bottom for intentional overrides.
+
+   ========================================================= */
+/* Smooth interactions and keyboard accessibility */
+:root {
+    color-scheme: light;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img, svg {
+    max-width: 100%;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--jordanRed);
+    outline-offset: 4px;
+}
+
+/* Header & dropdown polish */
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.mainNavbar {
+    min-height: 88px;
+    padding: 12px 5%;
+    gap: 20px;
+    transition: background-color .3s ease, box-shadow .3s ease, min-height .3s ease;
+}
+
+.mainNavbar.isScrolled {
+    min-height: 74px;
+}
+
+.navLogo {
+    transition: transform .25s ease;
+}
+
+.navLogo:hover {
+    transform: translateY(-2px);
+}
+
+.navLinks a {
+    position: relative;
+    transition: color .25s ease;
+}
+
+.navLinks a::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--jordanRed);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .28s ease;
+}
+
+.navLinks a:hover, .navLinks a:focus-visible {
+    color: #FFFFFF;
+}
+
+.navLinks a:hover::after, .navLinks a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.languageBtn {
+    transition: color .25s ease, opacity .25s ease;
+}
+
+.languageBtn:hover {
+    color: #FFFFFF;
+    opacity: .75;
+}
+
+.languageMenu button, .profileMenu a, .profileMenu button {
+    transition: background-color .22s ease, color .22s ease;
+}
+
+.languageMenu button:hover, .profileMenu a:hover, .profileMenu button:hover {
+    background-color: #FFF0F2;
+    color: var(--jordanRed);
+}
+
+.profileBtn {
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.profileBtn:hover {
+    transform: scale(1.07);
+    border-color: var(--jordanRed);
+    box-shadow: 0 0 0 4px rgba(206, 17, 38, .16);
+}
+
+.menuToggleBtn {
+    transition: background-color .25s ease, border-color .25s ease;
+}
+
+.menuToggleBtn:hover {
+    background-color: var(--jordanRed);
+    border-color: var(--jordanRed);
+}
+
+/* Hero */
+.heroSlide {
+    transition: opacity .8s ease, visibility .8s ease;
+}
+
+.heroBtn {
+    transition: background-color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.heroBtn:hover {
+    box-shadow: 0 10px 24px rgba(206, 17, 38, .3);
+}
+
+.prevSlideBtn, .nextSlideBtn, .slideIndicator {
+    transition: background-color .25s ease, border-color .25s ease, transform .25s ease, color .25s ease;
+}
+
+.prevSlideBtn:hover, .nextSlideBtn:hover {
+    transform: scale(1.08);
+}
+
+.slideIndicator:hover {
+    border-color: var(--jordanRed);
+    background-color: rgba(206,17,38,.55);
+}
+
+.viewAllEventsBtn {
+    transition: background-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.viewAllEventsBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(206,17,38,.18);
+}
+
+/* Explore Events — missing section and tab styles */
+.eventsSection {
+    padding: 90px 6%;
+    background-color: #FFFFFF;
+}
+
+.eventsHeading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.eventsHeading h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    color: var(--charcoal);
+    margin: 12px 0;
+}
+
+.eventsHeading h2 span {
+    color: var(--jordanRed);
+}
+
+.eventsHeading p {
+    color: #666666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.eventsTab {
+    flex: 1;
+    padding: 18px 12px;
+    background: transparent;
+    border: 0;
+    border-bottom: 4px solid transparent;
+    margin-bottom: -3px;
+    color: #777777;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color .25s ease, border-color .25s ease, background-color .25s ease;
+}
+
+.eventsTab:hover {
+    color: var(--jordanRed);
+    background-color: #FFF6F7;
+}
+
+.eventsTab.activeEventsTab {
+    color: var(--jordanRed);
+    border-bottom-color: var(--jordanRed);
+}
+
+.eventsFooter {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+/* Event card details */
+.eventCard {
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.eventCard:hover .eventDateBadge {
+    background-color: var(--jordanRedHover);
+}
+
+.eventDateBadge {
+    transition: background-color .3s ease;
+}
+
+.eventContent h3 {
+    transition: color .25s ease;
+}
+
+.eventCard:hover .eventContent h3 {
+    color: var(--jordanRed);
+}
+
+.eventTags span {
+    transition: background-color .25s ease, color .25s ease;
+}
+
+.eventCard:hover .eventTags span {
+    background-color: #FFF0F2;
+    color: var(--jordanRed);
+}
+
+/* Travel information */
+.travelInfoItem {
+    padding: 25px 20px;
+    border-radius: 16px;
+    transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease;
+}
+
+.travelInfoItem:hover {
+    transform: translateY(-8px);
+    background-color: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.travelInfoItem:hover h3 {
+    color: var(--jordanRed);
+}
+
+.travelInfoItem:hover .travelInfoIcon {
+    transform: scale(1.12);
+}
+
+.travelInfoItem:hover .travelInfoLink {
+    text-decoration: underline;
+}
+
+.travelInfoIcon {
+    transition: transform .3s ease;
+}
+
+.travelInfoItem h3 {
+    transition: color .3s ease;
+}
+
+.travelInfoLink {
+    transition: color .25s ease;
+}
+
+/* Footer */
+.footerLogo {
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.footerLogo:hover {
+    transform: translateY(-3px);
+    opacity: .85;
+}
+
+/* =========================================================
+
+   RESPONSIVE — tablets and mobile
+
+   ========================================================= */
+@media (max-width: 1200px) {
+    .navLinks {
+        gap: 18px;
+    }
+
+    .navLinks a {
+        font-size: 12px;
+    }
+
+    .eventsGrid {
+        gap: 22px 16px;
+    }
+
+    .eventContent {
+        padding: 18px 16px 20px;
+    }
+
+    .eventContent h3 {
+        font-size: 18px;
+    }
+
+    .eventImage {
+        height: 210px;
+    }
+
+}
+
+@media (max-width: 1050px) {
+    .mainNavbar {
+        position: relative;
+        min-height: 76px;
+    }
+
+    .mainNavbar.isScrolled {
+        position: fixed;
+    }
+
+    .navLinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 110;
+        padding: 20px 5%;
+        background-color: var(--charcoal);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        box-shadow: var(--softShadow);
+        max-height: calc(100vh - 76px);
+        overflow-y: auto;
+    }
+
+    .navLinks.isOpen {
+        display: flex;
+    }
+
+    .navLinks a {
+        display: block;
+        padding: 12px 4px;
+        font-size: 15px;
+    }
+
+    .navLinks a::after {
+        bottom: 5px;
+        width: 45px;
+    }
+
+    .menuToggleBtn {
+        display: block;
+    }
+
+.eventsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .eventImage {
+        height: 240px;
+    }
+
+    .travelInfoGrid {
+        gap: 22px;
+    }
+
+    .travelInfoSection {
+        padding: 75px 5%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .topBar {
+        padding: 8px 5%;
+    }
+
+    .mainNavbar {
+        padding: 10px 5%;
+    }
+
+    .heroSection, .heroSlider {
+        min-height: 720px;
+        min-height: 100svh;
+    }
+
+    .heroContent {
+        left: 6%;
+        right: 6%;
+        bottom: 27%;
+        max-width: 600px;
+    }
+
+    .heroContent h1, .heroContent h2 {
+        font-size: clamp(34px, 7vw, 56px);
+    }
+
+    .heroControls {
+        right: 6%;
+        bottom: 7%;
+    }
+
+    .heroIndicators {
+        left: 6%;
+        bottom: 15%;
+        max-width: 70%;
+    }
+
+    .eventsSection {
+        padding: 75px 5%;
+    }
+
+    .trendingHeader {
+        align-items: flex-end;
+        gap: 18px;
+    }
+
+    .trendingHeading h2 {
+        font-size: 36px;
+    }
+
+.trendingImageWrapper {
+        height: 235px;
+    }
+
+    .travelInfoGrid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 12px;
+    }
+
+    .travelInfoTitle {
+        font-size: 32px;
+        margin-bottom: 38px;
+    }
+
+    .travelInfoItem {
+        padding: 24px;
+    }
+
+    .travelInfoIcon {
+        width: 82px;
+        height: 82px;
+    }
+
+    .travelInfoItem p {
+        max-width: 370px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .topBar {
+        min-height: 34px;
+    }
+
+    .siteName, .languageBtn {
+        font-size: 11px;
+    }
+
+    .mainNavbar {
+        min-height: 70px;
+    }
+
+    .mainNavbar.isScrolled {
+        min-height: 66px;
+    }
+
+    .navLogo {
+        font-size: 17px;
+        margin-left: 0;
+    }
+
+    .profileDropdown {
+        margin-right: 0;
+    }
+
+    .profileBtn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navActions {
+        gap: 9px;
+    }
+
+    .menuToggleBtn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .heroContent {
+        left: 6%;
+        right: 6%;
+        bottom: 29%;
+    }
+
+    .heroContent h1, .heroContent h2 {
+        font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .heroContent p {
+        font-size: 15px;
+    }
+
+    .heroBtn {
+        padding: 13px 22px;
+    }
+
+    .heroControls {
+        bottom: 6%;
+        gap: 8px;
+    }
+
+    .prevSlideBtn, .nextSlideBtn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .heroIndicators {
+        left: 6%;
+        bottom: 15%;
+        max-width: 90%;
+        gap: 6px;
+    }
+
+    .slideIndicator {
+        font-size: 11px;
+        padding: 7px 10px;
+    }
+
+    .eventsSection {
+        padding: 62px 5%;
+    }
+
+    .trendingHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .trendingHeading h2 {
+        font-size: 32px;
+    }
+
+.eventsHeading {
+        margin-bottom: 28px;
+    }
+
+    .eventsHeading h2 {
+        font-size: 30px;
+    }
+
+    .eventsHeading p {
+        font-size: 14px;
+    }
+
+    .eventsGrid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .eventImage {
+        height: 235px;
+    }
+
+    .eventContent {
+        padding: 20px;
+    }
+
+    .eventContent h3 {
+        font-size: 21px;
+    }
+
+    .eventsFooter {
+        margin-top: 32px;
+    }
+
+    .travelInfoSection {
+        padding: 65px 5%;
+    }
+
+    .travelInfoTitle {
+        font-size: 28px;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .navLogo {
+        font-size: 15px;
+    }
+
+    .heroIndicators {
+        max-width: 100%;
+    }
+
+    .slideIndicator {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+.eventDateBadge {
+        width: 78px;
+        height: 160px;
+    }
+
+}
+
+/* Reduced motion and touch input */
+@media (hover: none) {
+    .eventCard:hover, .travelInfoItem:hover {
+        transform: none;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+
+/* ================= FOOTER — VISIT JORDAN ================= */
+.siteFooter {
+    background: #171717;
+    color: #FFFFFF;
+    padding: 56px 6% 24px;
+    border-top: 3px solid #CE1126;
+}
+
+.footerContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footerBrand {
+    max-width: 360px;
+}
+
+.footerLogo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    color: #FFFFFF;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.footerLogo:hover {
+    transform: translateY(-3px);
+}
+
+.footerLogo span {
+    font-size: 26px;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.footerLogo strong {
+    color: #CE1126;
+    font-size: 31px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.footerDescription {
+    margin-top: 18px;
+    color: #BDBDBD;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footerSocial {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.footerSocial a {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footerSocial a:hover {
+    color: #CE1126;
+    transform: translateY(-2px);
+}
+
+.footerNavigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+    padding: 36px 0 40px;
+}
+
+.footerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.footerColumn h3 {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.footerColumn a {
+    color: #BDBDBD;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footerColumn a:hover {
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+.footerBottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 24px;
+    text-align: center;
+}
+
+.footerCopyright {
+    color: #AFAFAF;
+    font-size: 13px;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .siteFooter {
+        padding: 42px 5% 24px;
+    }
+
+    .footerTop {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footerNavigation {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 20px;
+    }
+
+}
+
+@media (max-width: 420px) {
+    .footerNavigation {
+        grid-template-columns: 1fr;
+    }
+
+    .footerColumn {
+        gap: 11px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footerLogo, .footerSocial a, .footerColumn a {
+        transition: none;
+    }
+
+}
+
+/* The footer uses its own layout, independent of the page sections. */
+.siteFooter {
+    display: block;
+    text-align: left;
+}
+
+/* ==========================================================
+   LANDING PAGE | MAIN NAVIGATION AND MEGA MENUS
+   Keep the navbar transparent when closed.
+   The red underline belongs ONLY to the open menu.
+   ========================================================== */
+.siteHeader {
+    z-index: 200;
+}
+
+.mainNavbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 88px;
+    padding: 12px 5%;
+    background: transparent;
+    transition: background-color 0.25s ease;
+}
+
+.navLogo, .navActions {
+    flex-shrink: 0;
+}
+
+.navLinks {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: clamp(24px, 2.35vw, 42px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navLinks > li {
+    flex: 0 0 auto;
+    min-width: 0;
+    list-style: none;
+}
+
+.navLinks > .aboutDropdown, .aboutDetails {
+    position: static;
+}
+
+.aboutDropdownBtn {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    border: 0;
+    color: #FFFFFF;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    box-shadow: inset 0 -2px 0 transparent;
+    transition: box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.aboutDropdownBtn::-webkit-details-marker {
+    display: none;
+}
+
+.aboutDropdownBtn::marker {
+    content: '';
+}
+
+/* Remove old nav-link pseudo-element underlines, including focused links. */
+.navLinks > li > a::after, .navLinks .aboutDropdownBtn::after, .navLinks .aboutDropdownBtn::before {
+    display: none;
+    content: none;
+}
+
+.navLinks > li > a, .navLinks .aboutDropdownBtn {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Only the open menu receives the red underline. */
+.aboutDetails[open] > .aboutDropdownBtn {
+    box-shadow: inset 0 -2px 0 #CE1126;
+}
+
+.aboutDetails:not([open]) > .aboutDropdownBtn {
+    box-shadow: inset 0 -2px 0 transparent;
+}
+
+.aboutMegaMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 500;
+    padding: 32px 5% 38px;
+    color: #171717;
+    background-color: #FFFFFF;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.aboutDetails:not([open]) > .aboutMegaMenu {
+    display: none;
+}
+
+.aboutMegaInner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(270px, 1fr);
+    gap: 42px;
+    width: min(1160px, 100%);
+    margin: 0 auto;
+}
+
+.aboutMegaLinks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: 22px 28px;
+    padding: 10px 30px 10px 0;
+    border-right: 1px solid #E7E2DF;
+}
+
+.navLinks .aboutMegaLinks a {
+    display: block;
+    width: fit-content;
+    padding: 0;
+    color: #4B4B4B;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: normal;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navLinks .aboutMegaLinks a::after {
+    display: none;
+    content: none;
+}
+
+.navLinks .aboutMegaLinks a:hover, .navLinks .aboutMegaLinks a[aria-current="page"] {
+    color: #CE1126;
+    transform: translateX(3px);
+}
+
+.aboutMegaFeature h2 {
+    margin: 0 0 10px;
+    color: #CE1126;
+    font-size: 25px;
+}
+
+.aboutMegaFeature p {
+    margin: 0 0 18px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.aboutMegaPhoto {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 150px;
+    border-radius: 8px;
+    background-color: #E8E3DC;
+}
+
+#aboutMenu .aboutMegaPhoto {
+    background-image: url("landingPageImage/royal.png");
+}
+
+#planMenu .aboutMegaPhoto {
+    background-image: url("landingPageImage/petra.png");
+}
+
+#thingsMenu .aboutMegaPhoto {
+    background-image: url("../landingPageImage/bole.png");
+}
+#eventsMenu .aboutMegaPhoto {
+    background-image: url("landingPageImage/dead.png");
+}
+
+/* Change colors only while a mega menu is open. */
+.siteHeader:has(.aboutDetails[open]) .mainNavbar, .siteHeader.menuIsOpen .mainNavbar {
+    color: #171717;
+    background: #FFFFFF;
+}
+
+.siteHeader:has(.aboutDetails[open]) .topBar, .siteHeader.menuIsOpen .topBar {
+    background: #F2F0ED;
+    border-bottom-color: #E7E2DF;
+}
+
+.siteHeader:has(.aboutDetails[open]) .siteName,
+.siteHeader:has(.aboutDetails[open]) .languageBtn,
+.siteHeader:has(.aboutDetails[open]) .navLogo span,
+.siteHeader:has(.aboutDetails[open]) .navLinks > li > a,
+.siteHeader:has(.aboutDetails[open]) .aboutDropdownBtn,
+.siteHeader.menuIsOpen .siteName,
+.siteHeader.menuIsOpen .languageBtn,
+.siteHeader.menuIsOpen .navLogo span,
+.siteHeader.menuIsOpen .navLinks > li > a,
+.siteHeader.menuIsOpen .aboutDropdownBtn {
+    color: #171717;
+}
+
+.siteHeader:has(.aboutDetails[open]) .profileBtn, .siteHeader.menuIsOpen .profileBtn {
+    border-color: #DEDEDE;
+}
+
+/* Preserve disabled footer placeholders until dedicated pages exist. */
+.footerColumn .footerPending {
+    color: #BDBDBD;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 1200px) {
+    .mainNavbar {
+        gap: 16px;
+    }
+
+    .navLinks {
+        gap: 18px;
+    }
+
+    .navLinks > li > a,     .navLinks .aboutDropdownBtn {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 1050px) {
+    .mainNavbar {
+        min-height: 76px;
+    }
+
+    .navLinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 500;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        max-height: calc(100vh - 76px);
+        padding: 15px 5%;
+        overflow-y: auto;
+        background: #171717;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .navLinks.isOpen {
+        display: flex;
+    }
+
+    .navLinks > li {
+        width: 100%;
+    }
+
+    .navLinks .aboutDropdownBtn,
+    .navLinks > li > a,
+    .siteHeader:has(.aboutDetails[open]) .navLinks > li > a,
+    .siteHeader:has(.aboutDetails[open]) .navLinks .aboutDropdownBtn {
+        display: block;
+        width: 100%;
+        padding: 13px 4px;
+        color: #FFFFFF;
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .aboutMegaMenu {
+        position: static;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    .aboutMegaInner {
+        display: block;
+    }
+
+    .aboutMegaLinks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        padding: 0;
+        border: none;
+    }
+
+    .aboutMegaFeature {
+        display: none;
+    }
+
+    .navLinks .aboutMegaLinks a {
+        color: #4B4B4B;
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 520px) {
+    .aboutMegaLinks {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aboutDropdownBtn,     .navLinks .aboutMegaLinks a {
+        transition: none;
+    }
+
+}
+
+
